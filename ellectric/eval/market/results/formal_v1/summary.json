@@ -1,0 +1,493 @@
+{
+ "cases_sha256": "08ed8d13d23400b3538184a7128d1c464ade4705ffdff247b0d6ee376d4acb56",
+ "summary": {
+  "E0": {
+   "tool_call_accuracy": {
+    "mean": 0.9804878048780488,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 201,
+      "denominator": 205,
+      "value": 0.9804878048780488
+     }
+    ],
+    "pooled": {
+     "numerator": 201,
+     "denominator": 205,
+     "value": 0.9804878048780488
+    }
+   },
+   "invalid_call_rate": {
+    "mean": 0.004878048780487805,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 1,
+      "denominator": 205,
+      "value": 0.004878048780487805
+     }
+    ],
+    "pooled": {
+     "numerator": 1,
+     "denominator": 205,
+     "value": 0.004878048780487805
+    }
+   },
+   "task_completion": {
+    "mean": 0.8,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 32,
+      "denominator": 40,
+      "value": 0.8
+     }
+    ],
+    "pooled": {
+     "numerator": 32,
+     "denominator": 40,
+     "value": 0.8
+    }
+   },
+   "policy_citation": {
+    "mean": 0.782608695652174,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 18,
+      "denominator": 23,
+      "value": 0.782608695652174
+     }
+    ],
+    "pooled": {
+     "numerator": 18,
+     "denominator": 23,
+     "value": 0.782608695652174
+    }
+   },
+   "aux_by_run": [
+    {
+     "cases_scored": 100,
+     "network_errors_excluded": 0,
+     "run_errors": 0,
+     "invalid_reasons": {
+      "tool_error": 1
+     },
+     "report_validation_pass": {
+      "numerator": 96,
+      "denominator": 100,
+      "value": 0.96
+     },
+     "verified": {
+      "numerator": 0,
+      "denominator": 100,
+      "value": 0.0
+     },
+     "required_numbers_pass": {
+      "numerator": 76,
+      "denominator": 85,
+      "value": 0.8941176470588236
+     },
+     "mean_tool_calls": 2.05,
+     "mean_tokens": 24354.89,
+     "mean_elapsed_s": 88.71566419999999,
+     "replan_runs": 0,
+     "by_category_task_like": {
+      "A": {
+       "numerator": 21,
+       "denominator": 25,
+       "value": 0.84
+      },
+      "B": {
+       "numerator": 20,
+       "denominator": 20,
+       "value": 1.0
+      },
+      "C": {
+       "numerator": 19,
+       "denominator": 20,
+       "value": 0.95
+      },
+      "D": {
+       "numerator": 12,
+       "denominator": 15,
+       "value": 0.8
+      },
+      "E": {
+       "numerator": 13,
+       "denominator": 20,
+       "value": 0.65
+      }
+     }
+    }
+   ]
+  },
+  "E1": {
+   "tool_call_accuracy": {
+    "mean": 0.9952038369304557,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 415,
+      "denominator": 417,
+      "value": 0.9952038369304557
+     }
+    ],
+    "pooled": {
+     "numerator": 415,
+     "denominator": 417,
+     "value": 0.9952038369304557
+    }
+   },
+   "invalid_call_rate": {
+    "mean": 0.004796163069544364,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 2,
+      "denominator": 417,
+      "value": 0.004796163069544364
+     }
+    ],
+    "pooled": {
+     "numerator": 2,
+     "denominator": 417,
+     "value": 0.004796163069544364
+    }
+   },
+   "task_completion": {
+    "mean": 0.85,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 34,
+      "denominator": 40,
+      "value": 0.85
+     }
+    ],
+    "pooled": {
+     "numerator": 34,
+     "denominator": 40,
+     "value": 0.85
+    }
+   },
+   "policy_citation": {
+    "mean": 0.9565217391304348,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 22,
+      "denominator": 23,
+      "value": 0.9565217391304348
+     }
+    ],
+    "pooled": {
+     "numerator": 22,
+     "denominator": 23,
+     "value": 0.9565217391304348
+    }
+   },
+   "aux_by_run": [
+    {
+     "cases_scored": 100,
+     "network_errors_excluded": 0,
+     "run_errors": 0,
+     "invalid_reasons": {
+      "as_of_boundary": 2
+     },
+     "report_validation_pass": {
+      "numerator": 96,
+      "denominator": 100,
+      "value": 0.96
+     },
+     "verified": {
+      "numerator": 0,
+      "denominator": 100,
+      "value": 0.0
+     },
+     "required_numbers_pass": {
+      "numerator": 78,
+      "denominator": 85,
+      "value": 0.9176470588235294
+     },
+     "mean_tool_calls": 4.17,
+     "mean_tokens": 16775.94,
+     "mean_elapsed_s": 50.301327,
+     "replan_runs": 0,
+     "by_category_task_like": {
+      "A": {
+       "numerator": 21,
+       "denominator": 25,
+       "value": 0.84
+      },
+      "B": {
+       "numerator": 17,
+       "denominator": 20,
+       "value": 0.85
+      },
+      "C": {
+       "numerator": 20,
+       "denominator": 20,
+       "value": 1.0
+      },
+      "D": {
+       "numerator": 14,
+       "denominator": 15,
+       "value": 0.9333333333333333
+      },
+      "E": {
+       "numerator": 14,
+       "denominator": 20,
+       "value": 0.7
+      }
+     }
+    }
+   ]
+  },
+  "E2": {
+   "tool_call_accuracy": {
+    "mean": 0.9931972789115646,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 438,
+      "denominator": 441,
+      "value": 0.9931972789115646
+     }
+    ],
+    "pooled": {
+     "numerator": 438,
+     "denominator": 441,
+     "value": 0.9931972789115646
+    }
+   },
+   "invalid_call_rate": {
+    "mean": 0.006802721088435374,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 3,
+      "denominator": 441,
+      "value": 0.006802721088435374
+     }
+    ],
+    "pooled": {
+     "numerator": 3,
+     "denominator": 441,
+     "value": 0.006802721088435374
+    }
+   },
+   "task_completion": {
+    "mean": 0.85,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 34,
+      "denominator": 40,
+      "value": 0.85
+     }
+    ],
+    "pooled": {
+     "numerator": 34,
+     "denominator": 40,
+     "value": 0.85
+    }
+   },
+   "policy_citation": {
+    "mean": 0.9130434782608695,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 21,
+      "denominator": 23,
+      "value": 0.9130434782608695
+     }
+    ],
+    "pooled": {
+     "numerator": 21,
+     "denominator": 23,
+     "value": 0.9130434782608695
+    }
+   },
+   "aux_by_run": [
+    {
+     "cases_scored": 100,
+     "network_errors_excluded": 0,
+     "run_errors": 0,
+     "invalid_reasons": {
+      "as_of_boundary": 3
+     },
+     "report_validation_pass": {
+      "numerator": 95,
+      "denominator": 100,
+      "value": 0.95
+     },
+     "verified": {
+      "numerator": 70,
+      "denominator": 100,
+      "value": 0.7
+     },
+     "required_numbers_pass": {
+      "numerator": 80,
+      "denominator": 85,
+      "value": 0.9411764705882353
+     },
+     "mean_tool_calls": 4.41,
+     "mean_tokens": 30577.05,
+     "mean_elapsed_s": 77.1720698,
+     "replan_runs": 13,
+     "by_category_task_like": {
+      "A": {
+       "numerator": 24,
+       "denominator": 25,
+       "value": 0.96
+      },
+      "B": {
+       "numerator": 18,
+       "denominator": 20,
+       "value": 0.9
+      },
+      "C": {
+       "numerator": 19,
+       "denominator": 20,
+       "value": 0.95
+      },
+      "D": {
+       "numerator": 13,
+       "denominator": 15,
+       "value": 0.8666666666666667
+      },
+      "E": {
+       "numerator": 15,
+       "denominator": 20,
+       "value": 0.75
+      }
+     }
+    }
+   ]
+  },
+  "E3": {
+   "tool_call_accuracy": {
+    "mean": 0.9976359338061466,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 422,
+      "denominator": 423,
+      "value": 0.9976359338061466
+     }
+    ],
+    "pooled": {
+     "numerator": 422,
+     "denominator": 423,
+     "value": 0.9976359338061466
+    }
+   },
+   "invalid_call_rate": {
+    "mean": 0.002364066193853428,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 1,
+      "denominator": 423,
+      "value": 0.002364066193853428
+     }
+    ],
+    "pooled": {
+     "numerator": 1,
+     "denominator": 423,
+     "value": 0.002364066193853428
+    }
+   },
+   "task_completion": {
+    "mean": 0.825,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 33,
+      "denominator": 40,
+      "value": 0.825
+     }
+    ],
+    "pooled": {
+     "numerator": 33,
+     "denominator": 40,
+     "value": 0.825
+    }
+   },
+   "policy_citation": {
+    "mean": 0.21739130434782608,
+    "std": null,
+    "runs": [
+     {
+      "numerator": 5,
+      "denominator": 23,
+      "value": 0.21739130434782608
+     }
+    ],
+    "pooled": {
+     "numerator": 5,
+     "denominator": 23,
+     "value": 0.21739130434782608
+    }
+   },
+   "aux_by_run": [
+    {
+     "cases_scored": 100,
+     "network_errors_excluded": 0,
+     "run_errors": 2,
+     "invalid_reasons": {
+      "as_of_boundary": 1
+     },
+     "report_validation_pass": {
+      "numerator": 95,
+      "denominator": 100,
+      "value": 0.95
+     },
+     "verified": {
+      "numerator": 75,
+      "denominator": 100,
+      "value": 0.75
+     },
+     "required_numbers_pass": {
+      "numerator": 74,
+      "denominator": 83,
+      "value": 0.891566265060241
+     },
+     "mean_tool_calls": 4.316326530612245,
+     "mean_tokens": 31071.561224489797,
+     "mean_elapsed_s": 73.81710846938775,
+     "replan_runs": 8,
+     "by_category_task_like": {
+      "A": {
+       "numerator": 22,
+       "denominator": 25,
+       "value": 0.88
+      },
+      "B": {
+       "numerator": 16,
+       "denominator": 20,
+       "value": 0.8
+      },
+      "C": {
+       "numerator": 20,
+       "denominator": 20,
+       "value": 1.0
+      },
+      "D": {
+       "numerator": 3,
+       "denominator": 15,
+       "value": 0.2
+      },
+      "E": {
+       "numerator": 13,
+       "denominator": 20,
+       "value": 0.65
+      }
+     }
+    }
+   ]
+  }
+ }
+}

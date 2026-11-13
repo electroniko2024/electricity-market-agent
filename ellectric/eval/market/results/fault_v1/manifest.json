@@ -1,0 +1,12 @@
+{
+ "set": "fault_v1",
+ "cases_sha256": "89ae27743e66a2239093e25d970552d0bb7f159848fa0ccd16908c7ef9b92cd1",
+ "variants": {
+  "E0": "ReAct tool loop, no explicit plan, no reflection",
+  "E1": "Plan-Execute, no reflection",
+  "E2": "Plan-Execute + Reflection (full system)",
+  "E3": "E2 without the policy effective-interval filter (publish-date constraint kept)"
+ },
+ "model": "deepseek-v4.1-flash-1017",
+ "thinking": "disabled"
+}

@@ -1,0 +1,24 @@
+# Market analysis service.
+#
+#   cp docker/market/market.env.example docker/market/market.env   # then fill ELLECTRIC_LLM_API_KEY
+#   docker compose -f docker-compose.market.yml up -d --build
+#   curl http://localhost:8000/health
+#
+# Host networking lets the container reach the Ollama server already running in WSL
+# (bge-m3 embeddings) at localhost:11434 without exposing Ollama on other interfaces.
+
+services:
+  market-api:
+    build:
+      context: .
+      dockerfile: docker/market/Dockerfile
+    image: ellectric-market:dev
+    network_mode: host
+    env_file:
+      - docker/market/market.env
+    volumes:
+      # Processed market data, model snapshots, policy index (Chroma) and analysis traces.
+      - ./ellectric/data:/app/ellectric/data
+      # Local bge-reranker-v2-m3 weights; override with RERANKER_DIR if they move.
+      - ${RERANKER_DIR:-/mnt/d/资料/bge-reranker-v2-m3}:/models/bge-reranker-v2-m3:ro
+    restart: unless-stopped

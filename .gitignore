@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.pytest_cache/
+
+# Secrets — never commit API keys
+.env
+.env.*
+!.env.example
+docker/market/market.env
+
+# Local data (rebuilt from the raw sources; see README "数据")
+ellectric/data/**/*.csv
+ellectric/data/**/*.parquet
+ellectric/data/**/*.xlsx
+ellectric/data/**/*.xls
+ellectric/data/market_processed/*.duckdb
+ellectric/data/market_processed/*.json
+ellectric/data/market_processed/models/
+ellectric/data/market_processed/model_run_*/
+ellectric/data/market_processed/policy_index/
+ellectric/data/market_processed/analysis_runs/
+
+# Frontend
+node_modules/
+ellectric/web/tsconfig.tsbuildinfo
+
+# Local development tooling (kept on disk, not part of the project)
+.agents/
+.claude/
+.cocoindex_code/
+.codex/
+.cortexkit/
+.opencode/
+.planning/
+.serena/
+.sillyspec/
+.spec-workflow/
+graphify-out/
+config/
+docs/agents/
+AGENTS.md
+CLAUDE.md
+CONTEXT.md
+INSTRUCTIONS.md
+meta.json
+skills-lock.json
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+trace.log

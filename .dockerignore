@@ -1,0 +1,12 @@
+# Whitelist: only the Python package and its Docker lock enter the build context.
+*
+!ellectric/
+!docker/
+ellectric/data/
+ellectric/web/
+ellectric/notebooks/
+ellectric/tests/
+ellectric/.venv/
+**/__pycache__/
+**/*.pyc
+docker/market/market.env

@@ -1,0 +1,3129 @@
+{
+ "set": "holdout_v1",
+ "version": 1,
+ "built_at": "2026-11-11T06:14:36",
+ "case_count": 48,
+ "cases_sha256": "544fa98bfa1075ca0ff5bc424c1308dd5aeb14273b00658aeafe6b934f87804e",
+ "spike_threshold_yuan_per_mwh": 753.0,
+ "cases": [
+  {
+   "id": "XH01",
+   "category": "H",
+   "question": "昨天山东实时电价的均价、最高价和最低价分别是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2024-08-02T09:30:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-08-01",
+     "end_date": "2024-08-01"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price"
+     ],
+     "cover": {
+      "start_date": "2024-08-01",
+      "end_date": "2024-08-01"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "mean",
+     "any_of": [
+      447.96875
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    },
+    {
+     "name": "max",
+     "any_of": [
+      622.0
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    },
+    {
+     "name": "min",
+     "any_of": [
+      328.0
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_2024-08-01",
+     "type": "text_contains_any",
+     "values": [
+      "2024-08-01",
+      "8月1日"
+     ]
+    },
+    {
+     "id": "reports_mean",
+     "type": "number",
+     "number": "mean"
+    },
+    {
+     "id": "reports_max",
+     "type": "number",
+     "number": "max"
+    },
+    {
+     "id": "reports_min",
+     "type": "number",
+     "number": "min"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "相对时间:昨天",
+    "2024年数据"
+   ]
+  },
+  {
+   "id": "XH02",
+   "category": "H",
+   "question": "上周（周一到周日）山东实时电价一共出现了多少个负电价时段？占有效时段的比例是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-03-12T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-03-03",
+     "end_date": "2025-03-09"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price",
+      "detect_anomaly"
+     ],
+     "cover": {
+      "start_date": "2025-03-03",
+      "end_date": "2025-03-09"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "negative_count",
+     "any_of": [
+      140.0
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    },
+    {
+     "name": "negative_share",
+     "any_of": [
+      0.208333,
+      20.833333
+     ],
+     "tolerance": 0.002,
+     "relative": true
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_negative_count",
+     "type": "number",
+     "number": "negative_count"
+    },
+    {
+     "id": "reports_negative_share",
+     "type": "number",
+     "number": "negative_share"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "相对时间:上周",
+    "2025年上半年数据"
+   ]
+  },
+  {
+   "id": "XH03",
+   "category": "H",
+   "question": "截至信息截止时最近7个完整交易日，山东实时电价的平均水平是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-05-08T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-05-01",
+     "end_date": "2025-05-07"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price"
+     ],
+     "cover": {
+      "start_date": "2025-05-01",
+      "end_date": "2025-05-07"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "mean",
+     "any_of": [
+      271.496905
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_mean",
+     "type": "number",
+     "number": "mean"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "相对时间:最近7天",
+    "跨节假日"
+   ]
+  },
+  {
+   "id": "XH04",
+   "category": "H",
+   "question": "本月到目前为止，山东实时电价的最高价是多少？出现在哪一天？",
+   "mode": "historical_analysis",
+   "as_of": "2024-11-20T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-11-01",
+     "end_date": "2024-11-19"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price"
+     ],
+     "cover": {
+      "start_date": "2024-11-01",
+      "end_date": "2024-11-19"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "max",
+     "any_of": [
+      1198.75
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_2024-11-10",
+     "type": "text_contains_any",
+     "values": [
+      "2024-11-10",
+      "11月10日"
+     ]
+    },
+    {
+     "id": "reports_max",
+     "type": "number",
+     "number": "max"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "相对时间:本月至今"
+   ]
+  },
+  {
+   "id": "XH05",
+   "category": "H",
+   "question": "上个月山东实时电价的负电价时段有多少个？占比多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-07-03T14:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-06-01",
+     "end_date": "2025-06-30"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price",
+      "detect_anomaly"
+     ],
+     "cover": {
+      "start_date": "2025-06-01",
+      "end_date": "2025-06-30"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "negative_count",
+     "any_of": [
+      634.0
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    },
+    {
+     "name": "negative_share",
+     "any_of": [
+      0.220139,
+      22.013889
+     ],
+     "tolerance": 0.002,
+     "relative": true
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_negative_count",
+     "type": "number",
+     "number": "negative_count"
+    },
+    {
+     "id": "reports_negative_share",
+     "type": "number",
+     "number": "negative_share"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "相对时间:上个月",
+    "整月"
+   ]
+  },
+  {
+   "id": "XH06",
+   "category": "H",
+   "question": "2024年国庆假期期间，山东实时电价的均价和最低价是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2024-10-15T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-10-01",
+     "end_date": "2024-10-07"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price"
+     ],
+     "cover": {
+      "start_date": "2024-10-01",
+      "end_date": "2024-10-07"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "mean",
+     "any_of": [
+      297.833988
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    },
+    {
+     "name": "min",
+     "any_of": [
+      -100.0
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_mean",
+     "type": "number",
+     "number": "mean"
+    },
+    {
+     "id": "reports_min",
+     "type": "number",
+     "number": "min"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "节假日名称:国庆",
+    "2024年数据"
+   ]
+  },
+  {
+   "id": "XH07",
+   "category": "H",
+   "question": "2025年春节假期里，按一天中的时段看，哪个时段的平均实时电价最低？均价多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-02-10T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-01-28",
+     "end_date": "2025-02-04"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats"
+     ],
+     "args": {
+      "group_by": "slot"
+     },
+     "cover": {
+      "start_date": "2025-01-28",
+      "end_date": "2025-02-04"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "lowest_slot_mean",
+     "any_of": [
+      58.42125
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_14:30",
+     "type": "text_contains_any",
+     "values": [
+      "14:30",
+      "slot 57",
+      "slot_id=57"
+     ]
+    },
+    {
+     "id": "reports_lowest_slot_mean",
+     "type": "number",
+     "number": "lowest_slot_mean"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "节假日名称:春节",
+    "按时段统计"
+   ]
+  },
+  {
+   "id": "XH08",
+   "category": "H",
+   "question": "2024年第三季度每个月的山东实时电价均价分别是多少？哪个月最高？",
+   "mode": "historical_analysis",
+   "as_of": "2024-10-10T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-07-01",
+     "end_date": "2024-09-30"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price"
+     ],
+     "cover": {
+      "start_date": "2024-07-01",
+      "end_date": "2024-09-30"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "mean_jul",
+     "any_of": [
+      359.952392
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    },
+    {
+     "name": "mean_aug",
+     "any_of": [
+      424.151526
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    },
+    {
+     "name": "mean_sep",
+     "any_of": [
+      369.167017
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_8月",
+     "type": "text_contains_any",
+     "values": [
+      "8月",
+      "2024-08"
+     ]
+    },
+    {
+     "id": "reports_mean_jul",
+     "type": "number",
+     "number": "mean_jul"
+    },
+    {
+     "id": "reports_mean_aug",
+     "type": "number",
+     "number": "mean_aug"
+    },
+    {
+     "id": "reports_mean_sep",
+     "type": "number",
+     "number": "mean_sep"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "季度:超过单次查询上限需拆分",
+    "多月比较"
+   ]
+  },
+  {
+   "id": "XH09",
+   "category": "H",
+   "question": "2025年4月到6月，哪个月的负电价时段最多？三个月各有多少个？",
+   "mode": "historical_analysis",
+   "as_of": "2025-07-05T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-04-01",
+     "end_date": "2025-06-30"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price",
+      "detect_anomaly"
+     ],
+     "cover": {
+      "start_date": "2025-04-01",
+      "end_date": "2025-06-30"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "negative_apr",
+     "any_of": [
+      1005.0
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    },
+    {
+     "name": "negative_may",
+     "any_of": [
+      841.0
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    },
+    {
+     "name": "negative_jun",
+     "any_of": [
+      634.0
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_4月",
+     "type": "text_contains_any",
+     "values": [
+      "4月",
+      "2025-04"
+     ]
+    },
+    {
+     "id": "reports_negative_apr",
+     "type": "number",
+     "number": "negative_apr"
+    },
+    {
+     "id": "reports_negative_may",
+     "type": "number",
+     "number": "negative_may"
+    },
+    {
+     "id": "reports_negative_jun",
+     "type": "number",
+     "number": "negative_jun"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "多月:拆分查询",
+    "计数比较"
+   ]
+  },
+  {
+   "id": "XH10",
+   "category": "H",
+   "question": "2024年7月15日晚上19:00山东的实时电价是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2024-07-20T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-07-15",
+     "end_date": "2024-07-15"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price"
+     ],
+     "cover": {
+      "start_date": "2024-07-15",
+      "end_date": "2024-07-15"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "price_1900",
+     "any_of": [
+      796.68,
+      754.2
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_price_1900",
+     "type": "number",
+     "number": "price_1900"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "单点查询:具体时刻",
+    "时段口径"
+   ],
+   "arg_constraints": {
+    "query_price": {
+     "slot_id": [
+      "75",
+      "76"
+     ]
+    }
+   }
+  },
+  {
+   "id": "XH11",
+   "category": "H",
+   "question": "今年12月1日至14日山东实时电价均价是多少？和去年同期相比变化了多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-12-20T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-12-01",
+     "end_date": "2024-12-14"
+    },
+    {
+     "start_date": "2025-12-01",
+     "end_date": "2025-12-14"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price"
+     ],
+     "cover": {
+      "start_date": "2025-12-01",
+      "end_date": "2025-12-14"
+     }
+    },
+    {
+     "tools": [
+      "query_stats",
+      "query_price"
+     ],
+     "cover": {
+      "start_date": "2024-12-01",
+      "end_date": "2024-12-14"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "mean_2025",
+     "any_of": [
+      275.194251
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    },
+    {
+     "name": "mean_2024",
+     "any_of": [
+      288.347418
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    },
+    {
+     "name": "yoy_change",
+     "any_of": [
+      -13.153167,
+      13.153167
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_mean_2025",
+     "type": "number",
+     "number": "mean_2025"
+    },
+    {
+     "id": "reports_mean_2024",
+     "type": "number",
+     "number": "mean_2024"
+    },
+    {
+     "id": "reports_yoy_change",
+     "type": "number",
+     "number": "yoy_change"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "同比:两个窗口",
+    "相对年份"
+   ]
+  },
+  {
+   "id": "XL01",
+   "category": "L",
+   "question": "2024年8月5日山东全网实际负荷最高是多少兆瓦？出现在几点？",
+   "mode": "historical_analysis",
+   "as_of": "2024-08-10T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-08-05",
+     "end_date": "2024-08-05"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_load"
+     ],
+     "cover": {
+      "start_date": "2024-08-05",
+      "end_date": "2024-08-05"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "load_actual_mw_max",
+     "any_of": [
+      89455.11
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_19:45",
+     "type": "text_contains_any",
+     "values": [
+      "19:45"
+     ]
+    },
+    {
+     "id": "reports_load_actual_mw_max",
+     "type": "number",
+     "number": "load_actual_mw_max"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "负荷",
+    "极值时刻"
+   ]
+  },
+  {
+   "id": "XL02",
+   "category": "L",
+   "question": "2025年3月10日山东风电实际出力的最大值是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-03-15T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-03-10",
+     "end_date": "2025-03-10"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_load"
+     ],
+     "cover": {
+      "start_date": "2025-03-10",
+      "end_date": "2025-03-10"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "wind_actual_mw_max",
+     "any_of": [
+      16724.04
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_wind_actual_mw_max",
+     "type": "number",
+     "number": "wind_actual_mw_max"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "风电"
+   ]
+  },
+  {
+   "id": "XL03",
+   "category": "L",
+   "question": "2024年6月10日光伏实际出力最大是多少？在哪个时段？",
+   "mode": "historical_analysis",
+   "as_of": "2024-06-12T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-06-10",
+     "end_date": "2024-06-10"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_load"
+     ],
+     "cover": {
+      "start_date": "2024-06-10",
+      "end_date": "2024-06-10"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "solar_actual_mw_max",
+     "any_of": [
+      10742.84
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_11:30",
+     "type": "text_contains_any",
+     "values": [
+      "11:30"
+     ]
+    },
+    {
+     "id": "reports_solar_actual_mw_max",
+     "type": "number",
+     "number": "solar_actual_mw_max"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "光伏",
+    "极值时刻"
+   ]
+  },
+  {
+   "id": "XL04",
+   "category": "L",
+   "question": "2024年12月20日18:00，山东实际负荷和预测负荷分别是多少？偏差多大？",
+   "mode": "historical_analysis",
+   "as_of": "2024-12-25T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-12-20",
+     "end_date": "2024-12-20"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_load"
+     ],
+     "cover": {
+      "start_date": "2024-12-20",
+      "end_date": "2024-12-20"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "load_actual",
+     "any_of": [
+      81826.75,
+      81215.44
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    },
+    {
+     "name": "load_forecast",
+     "any_of": [
+      81541.53,
+      81047.73
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    },
+    {
+     "name": "deviation",
+     "any_of": [
+      285.22,
+      167.71,
+      -285.22,
+      -167.71
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_load_actual",
+     "type": "number",
+     "number": "load_actual"
+    },
+    {
+     "id": "reports_load_forecast",
+     "type": "number",
+     "number": "load_forecast"
+    },
+    {
+     "id": "reports_deviation",
+     "type": "number",
+     "number": "deviation"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "负荷预测偏差",
+    "单点查询",
+    "差值计算"
+   ],
+   "arg_constraints": {
+    "query_load": {
+     "slot_id": [
+      "71",
+      "72"
+     ]
+    }
+   }
+  },
+  {
+   "id": "XL05",
+   "category": "L",
+   "question": "2025年4月20日实际竞价空间的最小值是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-04-25T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-04-20",
+     "end_date": "2025-04-20"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_load"
+     ],
+     "cover": {
+      "start_date": "2025-04-20",
+      "end_date": "2025-04-20"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "actual_bid_space_mw_min",
+     "any_of": [
+      3086.551736
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_actual_bid_space_mw_min",
+     "type": "number",
+     "number": "actual_bid_space_mw_min"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "竞价空间"
+   ]
+  },
+  {
+   "id": "XL06",
+   "category": "L",
+   "question": "2024年7月济南的最高气温是多少度？是哪一天？",
+   "mode": "historical_analysis",
+   "as_of": "2024-08-05T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-07-01",
+     "end_date": "2024-07-31"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_weather"
+     ],
+     "cover": {
+      "start_date": "2024-07-01",
+      "end_date": "2024-07-31"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "temp_max",
+     "any_of": [
+      36.0
+     ],
+     "tolerance": 0.05,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_2024-07-01",
+     "type": "text_contains_any",
+     "values": [
+      "2024-07-01",
+      "7月1日"
+     ]
+    },
+    {
+     "id": "reports_temp_max",
+     "type": "number",
+     "number": "temp_max"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "气象",
+    "整月小时数据超过默认返回条数"
+   ]
+  },
+  {
+   "id": "XL07",
+   "category": "L",
+   "question": "2025年1月15日山东联络线（外来电）实际受电最大是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-01-20T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-01-15",
+     "end_date": "2025-01-15"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_load"
+     ],
+     "cover": {
+      "start_date": "2025-01-15",
+      "end_date": "2025-01-15"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "tie_line_actual_mw_max",
+     "any_of": [
+      24899.8607
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_tie_line_actual_mw_max",
+     "type": "number",
+     "number": "tie_line_actual_mw_max"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "联络线"
+   ]
+  },
+  {
+   "id": "XL08",
+   "category": "L",
+   "question": "2025年1月9日济南最低气温是多少？当天山东实时电价最高到多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-01-12T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-01-09",
+     "end_date": "2025-01-09"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_weather"
+     ],
+     "cover": {
+      "start_date": "2025-01-09",
+      "end_date": "2025-01-09"
+     }
+    },
+    {
+     "tools": [
+      "query_stats",
+      "query_price"
+     ],
+     "cover": {
+      "start_date": "2025-01-09",
+      "end_date": "2025-01-09"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "temp_min",
+     "any_of": [
+      -5.5
+     ],
+     "tolerance": 0.05,
+     "relative": false
+    },
+    {
+     "name": "max",
+     "any_of": [
+      576.4
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_temp_min",
+     "type": "number",
+     "number": "temp_min"
+    },
+    {
+     "id": "reports_max",
+     "type": "number",
+     "number": "max"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "气象+电价:两类工具"
+   ]
+  },
+  {
+   "id": "XM01",
+   "category": "M",
+   "question": "2025年4月里负电价时段最多的是哪一天？那天有多少个负电价时段？当天光伏实际出力最大是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-05-03T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-04-01",
+     "end_date": "2025-04-30"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price",
+      "detect_anomaly"
+     ],
+     "cover": {
+      "start_date": "2025-04-01",
+      "end_date": "2025-04-30"
+     }
+    },
+    {
+     "tools": [
+      "query_load"
+     ],
+     "cover": {
+      "start_date": "2025-04-12",
+      "end_date": "2025-04-12"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "negative_count",
+     "any_of": [
+      62.0
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    },
+    {
+     "name": "solar_max",
+     "any_of": [
+      9316.35
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_2025-04-12",
+     "type": "text_contains_any",
+     "values": [
+      "2025-04-12",
+      "4月12日"
+     ]
+    },
+    {
+     "id": "reports_negative_count",
+     "type": "number",
+     "number": "negative_count"
+    },
+    {
+     "id": "reports_solar_max",
+     "type": "number",
+     "number": "solar_max"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "多跳:先找日期再查出力"
+   ]
+  },
+  {
+   "id": "XM02",
+   "category": "M",
+   "question": "2024年8月日均实时电价最高的是哪天？那天的最大实际负荷是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2024-09-03T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-08-01",
+     "end_date": "2024-08-31"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price"
+     ],
+     "cover": {
+      "start_date": "2024-08-01",
+      "end_date": "2024-08-31"
+     }
+    },
+    {
+     "tools": [
+      "query_load"
+     ],
+     "cover": {
+      "start_date": "2024-08-25",
+      "end_date": "2024-08-25"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "daily_mean",
+     "any_of": [
+      596.033229
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    },
+    {
+     "name": "load_max",
+     "any_of": [
+      92937.24
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_2024-08-25",
+     "type": "text_contains_any",
+     "values": [
+      "2024-08-25",
+      "8月25日"
+     ]
+    },
+    {
+     "id": "reports_daily_mean",
+     "type": "number",
+     "number": "daily_mean"
+    },
+    {
+     "id": "reports_load_max",
+     "type": "number",
+     "number": "load_max"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "多跳:日均排名后查负荷"
+   ]
+  },
+  {
+   "id": "XM03",
+   "category": "M",
+   "question": "2024年10月实时电价的最低点出现在哪天哪个时段？当时风电和光伏实际出力合计是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2024-11-02T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-10-01",
+     "end_date": "2024-10-31"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price",
+      "detect_anomaly"
+     ],
+     "cover": {
+      "start_date": "2024-10-01",
+      "end_date": "2024-10-31"
+     }
+    },
+    {
+     "tools": [
+      "query_load"
+     ],
+     "cover": {
+      "start_date": "2024-10-04",
+      "end_date": "2024-10-04"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "min_price",
+     "any_of": [
+      -100.0
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    },
+    {
+     "name": "wind_plus_solar",
+     "any_of": [
+      7954.04
+     ],
+     "tolerance": 1.0,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_2024-10-04",
+     "type": "text_contains_any",
+     "values": [
+      "2024-10-04",
+      "10月4日"
+     ]
+    },
+    {
+     "id": "mentions_14:30",
+     "type": "text_contains_any",
+     "values": [
+      "14:30"
+     ]
+    },
+    {
+     "id": "reports_min_price",
+     "type": "number",
+     "number": "min_price"
+    },
+    {
+     "id": "reports_wind_plus_solar",
+     "type": "number",
+     "number": "wind_plus_solar"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "多跳:先定位时段再查出力",
+    "求和"
+   ]
+  },
+  {
+   "id": "XM04",
+   "category": "M",
+   "question": "截至信息截止时，山东实时电价最近一次出现负电价是哪一天？那天有几个负电价时段？",
+   "mode": "historical_analysis",
+   "as_of": "2024-08-26T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-06-25",
+     "end_date": "2024-08-25"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price",
+      "detect_anomaly"
+     ],
+     "cover": {
+      "start_date": "2024-08-11",
+      "end_date": "2024-08-25"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "negative_count",
+     "any_of": [
+      7.0
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_2024-08-11",
+     "type": "text_contains_any",
+     "values": [
+      "2024-08-11",
+      "8月11日"
+     ]
+    },
+    {
+     "id": "reports_negative_count",
+     "type": "number",
+     "number": "negative_count"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "多跳:向前回溯",
+    "相对时间"
+   ],
+   "reference": {
+    "last_negative": {
+     "trade_date": "2024-08-11",
+     "negative": 7
+    }
+   }
+  },
+  {
+   "id": "XM05",
+   "category": "M",
+   "question": "2024年8月价格尖峰最多的是哪一天？当天最高价多少？可能是什么原因？",
+   "mode": "historical_analysis",
+   "as_of": "2024-09-02T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers",
+    "search_policy"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-08-01",
+     "end_date": "2024-08-31"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price",
+      "detect_anomaly"
+     ],
+     "cover": {
+      "start_date": "2024-08-01",
+      "end_date": "2024-08-31"
+     }
+    },
+    {
+     "tools": [
+      "explain_drivers"
+     ],
+     "max_days": 7,
+     "cover": {
+      "start_date": "2024-08-24",
+      "end_date": "2024-08-24"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "max_price",
+     "any_of": [
+      845.11
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_2024-08-24",
+     "type": "text_contains_any",
+     "values": [
+      "2024-08-24",
+      "8月24日"
+     ]
+    },
+    {
+     "id": "cause_backed_by_drivers",
+     "type": "cause_cites_tool",
+     "tool": "explain_drivers"
+    },
+    {
+     "id": "discloses_limitations",
+     "type": "has_limitations"
+    },
+    {
+     "id": "reports_max_price",
+     "type": "number",
+     "number": "max_price"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "多跳:先检测再归因",
+    "非测试期归因"
+   ],
+   "reference": {
+    "spike_day": {
+     "trade_date": "2024-08-24",
+     "spikes": 12,
+     "max": 845.11
+    },
+    "threshold": 753.0
+   }
+  },
+  {
+   "id": "XF01",
+   "category": "F",
+   "question": "请用滚动重训（rolling）的模型快照研判2025年11月20日山东实时电价，三个模型预测的最低价分别是多少？",
+   "mode": "historical_forecast",
+   "as_of": "2025-11-20T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers",
+    "forecast_price"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-10-23",
+     "end_date": "2025-11-19"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "forecast_price"
+     ],
+     "args": {
+      "target_date": "2025-11-20",
+      "mode": "rolling"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "rolling_model_min",
+     "any_of": [
+      31.972101,
+      38.145935,
+      -92.287384
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_rolling_model_min",
+     "type": "number",
+     "number": "rolling_model_min"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "滚动快照:指定 mode"
+   ],
+   "forecast_target": "2025-11-20"
+  },
+  {
+   "id": "XF02",
+   "category": "F",
+   "question": "以当前信息截止，研判下一个交易日的山东实时电价，三个模型各自预测的最高价是多少？",
+   "mode": "historical_forecast",
+   "as_of": "2025-12-16T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers",
+    "forecast_price"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-11-18",
+     "end_date": "2025-12-15"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "forecast_price"
+     ],
+     "args": {
+      "target_date": "2025-12-16"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "some_model_max",
+     "any_of": [
+      404.158699,
+      492.927002,
+      388.69223,
+      407.101045,
+      454.452515,
+      382.69104
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_some_model_max",
+     "type": "number",
+     "number": "some_model_max"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "隐含目标日"
+   ],
+   "forecast_target": "2025-12-16"
+  },
+  {
+   "id": "XF03",
+   "category": "F",
+   "question": "研判2026年1月6日山东实时电价的日均水平（三个模型各自预测的日均价），并和上周同一天的实际日均价比较。",
+   "mode": "historical_forecast",
+   "as_of": "2026-01-06T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers",
+    "forecast_price"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-12-09",
+     "end_date": "2026-01-05"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "forecast_price"
+     ],
+     "args": {
+      "target_date": "2026-01-06"
+     }
+    },
+    {
+     "tools": [
+      "query_stats",
+      "query_price"
+     ],
+     "cover": {
+      "start_date": "2025-12-30",
+      "end_date": "2025-12-30"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "model_daily_mean",
+     "any_of": [
+      285.073735,
+      285.941236,
+      256.599997,
+      275.871656,
+      278.873197,
+      269.116315,
+      253.88575,
+      267.291754
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    },
+    {
+     "name": "actual_mean_last_week",
+     "any_of": [
+      218.028646
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_model_daily_mean",
+     "type": "number",
+     "number": "model_daily_mean"
+    },
+    {
+     "id": "reports_actual_mean_last_week",
+     "type": "number",
+     "number": "actual_mean_last_week"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "预测+历史对比",
+    "相对日期:上周同日"
+   ],
+   "forecast_target": "2026-01-06"
+  },
+  {
+   "id": "XF04",
+   "category": "F",
+   "question": "研判2026年元旦当天的山东实时电价：最低价大概多少？有没有负电价风险？",
+   "mode": "historical_forecast",
+   "as_of": "2026-01-01T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers",
+    "forecast_price"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-12-04",
+     "end_date": "2025-12-31"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "forecast_price"
+     ],
+     "args": {
+      "target_date": "2026-01-01"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "some_model_min",
+     "any_of": [
+      13.178741,
+      20.924011,
+      -90.932037,
+      -15.846221,
+      8.923261,
+      -104.658478
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "reports_some_model_min",
+     "type": "number",
+     "number": "some_model_min"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "节假日名称作目标日"
+   ],
+   "forecast_target": "2026-01-01"
+  },
+  {
+   "id": "XP01",
+   "category": "P",
+   "question": "2025年12月31日这一天，山东电力市场执行的是哪一版市场规则？依据是什么？",
+   "mode": "historical_analysis",
+   "as_of": "2026-01-02T00:00:00+08:00",
+   "allowed_tools": [
+    "search_policy"
+   ],
+   "arg_windows": [],
+   "required_calls": [
+    {
+     "tools": [
+      "search_policy"
+     ],
+     "policy_in_force": "2024年山东电力市场规则.pdf"
+    }
+   ],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "cites_applicable_version",
+     "type": "policy_required"
+    }
+   ],
+   "needs_policy": true,
+   "required_policy": [
+    {
+     "relative_path": "2024年山东电力市场规则.pdf",
+     "keywords": [
+      "自2024年5月1日起施行"
+     ],
+     "page": 238,
+     "locator": "page 238",
+     "chunk_id": "5d0779adbbd01b076c33482f0bdbc4cb293016a17c713a37d485fa11239c9549",
+     "document_title": "山东电力市场规则（试行）2024 年版"
+    }
+   ],
+   "task_case": true,
+   "covers": [
+    "版本边界:新版生效前一天"
+   ],
+   "wrong_version_paths": [
+    "2025年山东电力市场规则（试行）.pdf"
+   ],
+   "policy_at": "2025-12-31"
+  },
+  {
+   "id": "XP02",
+   "category": "P",
+   "question": "2026年10月1日起，山东电力辅助服务管理实施细则用的是哪个版本？自什么时候施行？",
+   "mode": "historical_analysis",
+   "as_of": "2026-10-02T00:00:00+08:00",
+   "allowed_tools": [
+    "search_policy"
+   ],
+   "arg_windows": [],
+   "required_calls": [
+    {
+     "tools": [
+      "search_policy"
+     ],
+     "policy_in_force": "附件2：山东省电力辅助服务管理实施细则（2026年修订版）.pdf"
+    }
+   ],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "cites_applicable_version",
+     "type": "policy_required"
+    }
+   ],
+   "needs_policy": true,
+   "required_policy": [
+    {
+     "relative_path": "附件2：山东省电力辅助服务管理实施细则（2026年修订版）.pdf",
+     "keywords": [
+      "本细则自2026年10月1日起施行"
+     ],
+     "page": 21,
+     "locator": "第三十五条, page 21",
+     "chunk_id": "cdf9c82c80ac8cfbe444b2ab8696a971bc78e84da7238ca20b9c4baee0f2d3e0",
+     "document_title": "山东省电力辅助服务管理实施细则（2026 年修订版）"
+    }
+   ],
+   "task_case": true,
+   "covers": [
+    "版本边界:修订版生效当天",
+    "第三个版本"
+   ],
+   "wrong_version_paths": [
+    "2023年山东省电力辅助服务管理实施细则.pdf",
+    "附件2：山东省电力辅助服务管理实施细则.pdf"
+   ],
+   "policy_at": "2026-10-01"
+  },
+  {
+   "id": "XP03",
+   "category": "P",
+   "question": "按2026年3月时适用的规则，什么情况下算触发“电力供需紧张”？",
+   "mode": "historical_analysis",
+   "as_of": "2026-03-05T00:00:00+08:00",
+   "allowed_tools": [
+    "search_policy"
+   ],
+   "arg_windows": [],
+   "required_calls": [
+    {
+     "tools": [
+      "search_policy"
+     ],
+     "policy_in_force": "2025年山东电力市场规则（试行）.pdf"
+    }
+   ],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "cites_applicable_version",
+     "type": "policy_required"
+    }
+   ],
+   "needs_policy": true,
+   "required_policy": [
+    {
+     "relative_path": "2025年山东电力市场规则（试行）.pdf",
+     "keywords": [
+      "电力供需紧张触发条件如下"
+     ],
+     "page": 278,
+     "locator": "page 278",
+     "chunk_id": "fd16b5855fd118e46bb25f7b9b629e92c74933ff1cb912929c3ad9ff0214f88f",
+     "document_title": "山东电力市场规则（试行）2025 年 12 月版"
+    }
+   ],
+   "task_case": true,
+   "covers": [
+    "新条款",
+    "口语化"
+   ],
+   "wrong_version_paths": [
+    "2024年山东电力市场规则.pdf"
+   ],
+   "policy_at": "2026-03-01"
+  },
+  {
+   "id": "XP04",
+   "category": "P",
+   "question": "2024年9月的时候，电网代理购电的工商业用户，偏差电量是按什么价格结算的？",
+   "mode": "historical_analysis",
+   "as_of": "2024-09-12T00:00:00+08:00",
+   "allowed_tools": [
+    "search_policy"
+   ],
+   "arg_windows": [],
+   "required_calls": [
+    {
+     "tools": [
+      "search_policy"
+     ],
+     "policy_in_force": "2024年山东电力市场规则.pdf"
+    }
+   ],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "cites_applicable_version",
+     "type": "policy_required"
+    }
+   ],
+   "needs_policy": true,
+   "required_policy": [
+    {
+     "relative_path": "2024年山东电力市场规则.pdf",
+     "keywords": [
+      "代理购电工商业用户的偏差电量应按照现货价格结算"
+     ],
+     "page": 29,
+     "locator": "page 29",
+     "chunk_id": "21b1e081ccba8a7d93c9a64cd0a920b46a858104af9f2f1db6e2d621aa6db76f",
+     "document_title": "山东电力市场规则（试行）2024 年版"
+    }
+   ],
+   "task_case": true,
+   "covers": [
+    "新条款",
+    "口语化",
+    "早期版本"
+   ],
+   "wrong_version_paths": [],
+   "policy_at": "2024-09-10"
+  },
+  {
+   "id": "XP05",
+   "category": "P",
+   "question": "2026年2月，新型储能企业要进入山东电力市场需要满足哪些基本条件？",
+   "mode": "historical_analysis",
+   "as_of": "2026-02-16T00:00:00+08:00",
+   "allowed_tools": [
+    "search_policy"
+   ],
+   "arg_windows": [],
+   "required_calls": [
+    {
+     "tools": [
+      "search_policy"
+     ],
+     "policy_in_force": "2025年山东电力市场规则（试行）.pdf"
+    }
+   ],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "cites_applicable_version",
+     "type": "policy_required"
+    }
+   ],
+   "needs_policy": true,
+   "required_policy": [
+    {
+     "relative_path": "2025年山东电力市场规则（试行）.pdf",
+     "keywords": [
+      "新型储能企业基本条件"
+     ],
+     "page": 16,
+     "locator": "page 16",
+     "chunk_id": "f2449681522ff34dd4bee570f73af722c2b232a4e6309d4914b917ff16fd829e",
+     "document_title": "山东电力市场规则（试行）2025 年 12 月版"
+    }
+   ],
+   "task_case": true,
+   "covers": [
+    "新条款:经营主体条件"
+   ],
+   "wrong_version_paths": [],
+   "policy_at": "2026-02-15"
+  },
+  {
+   "id": "XP06",
+   "category": "P",
+   "question": "2025年6月，山东集中竞价交易的申报价格最小单位是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-06-03T00:00:00+08:00",
+   "allowed_tools": [
+    "search_policy"
+   ],
+   "arg_windows": [],
+   "required_calls": [
+    {
+     "tools": [
+      "search_policy"
+     ],
+     "policy_in_force": "山东电力市场参数（试行）.docx"
+    }
+   ],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "cites_applicable_version",
+     "type": "policy_required"
+    }
+   ],
+   "needs_policy": true,
+   "required_policy": [
+    {
+     "relative_path": "山东电力市场参数（试行）.docx",
+     "keywords": [
+      "交易标的申报价格的最小单位设置为0.1元/兆瓦时"
+     ],
+     "page": null,
+     "locator": "table 1, row 24",
+     "chunk_id": "3aed9f8b158028efd0e196a175e8fd601a7fba653511277ada122489034cb539",
+     "document_title": "山东电力市场参数（试行）"
+    }
+   ],
+   "task_case": true,
+   "covers": [
+    "配套文件:参数表"
+   ],
+   "wrong_version_paths": [],
+   "policy_at": "2025-06-01"
+  },
+  {
+   "id": "XP07",
+   "category": "P",
+   "question": "2026年11月适用的山东省电力并网运行管理实施细则是哪一版？何时施行？",
+   "mode": "historical_analysis",
+   "as_of": "2026-11-06T00:00:00+08:00",
+   "allowed_tools": [
+    "search_policy"
+   ],
+   "arg_windows": [],
+   "required_calls": [
+    {
+     "tools": [
+      "search_policy"
+     ],
+     "policy_in_force": "附件1：山东省电力并网运行管理实施细则（2026年修订版）.pdf"
+    }
+   ],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "cites_applicable_version",
+     "type": "policy_required"
+    }
+   ],
+   "needs_policy": true,
+   "required_policy": [
+    {
+     "relative_path": "附件1：山东省电力并网运行管理实施细则（2026年修订版）.pdf",
+     "keywords": [
+      "本细则自2026年10月1日起施行"
+     ],
+     "page": 121,
+     "locator": "第一百一十五条, page 121",
+     "chunk_id": "c520631ba9aea00a348346db29353e8b55178d16376918c8fef4646c4c36a298",
+     "document_title": "山东省电力并网运行管理实施细则（2026 年修订版）"
+    }
+   ],
+   "task_case": true,
+   "covers": [
+    "第三个版本"
+   ],
+   "wrong_version_paths": [
+    "2023年山东省电力并网运行管理实施细则.pdf",
+    "附件1：山东省电力并网运行管理实施细则.pdf"
+   ],
+   "policy_at": "2026-11-05"
+  },
+  {
+   "id": "XP08",
+   "category": "P",
+   "question": "2024年3月15日当天，山东现货市场的报价限价和出清限价是怎么规定的？请给出原文依据。",
+   "mode": "historical_analysis",
+   "as_of": "2024-03-20T00:00:00+08:00",
+   "allowed_tools": [
+    "search_policy"
+   ],
+   "arg_windows": [],
+   "required_calls": [
+    {
+     "tools": [
+      "search_policy"
+     ],
+     "args": {
+      "policy_at": "2024-03-15"
+     }
+    }
+   ],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "mentions_2024年5月1日",
+     "type": "any_text_contains_any",
+     "values": [
+      "2024年5月1日",
+      "2024-05-01",
+      "未覆盖",
+      "不在覆盖",
+      "覆盖范围",
+      "无法确认",
+      "无法提供",
+      "没有找到",
+      "未找到"
+     ]
+    },
+    {
+     "id": "no_policy_basis",
+     "type": "no_policy_basis"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "早于政策库覆盖期:应说明无法确认"
+   ],
+   "arg_window": {
+    "start_date": "2024-03-15",
+    "end_date": "2024-03-15"
+   }
+  },
+  {
+   "id": "XP09",
+   "category": "P",
+   "question": "对比2025年12月和2026年1月分别适用的山东电力市场规则，二级出清限价的第一种触发条件有什么不同？",
+   "mode": "historical_analysis",
+   "as_of": "2026-01-10T00:00:00+08:00",
+   "allowed_tools": [
+    "search_policy"
+   ],
+   "arg_windows": [],
+   "required_calls": [
+    {
+     "tools": [
+      "search_policy"
+     ],
+     "policy_in_force": "2024年山东电力市场规则.pdf"
+    },
+    {
+     "tools": [
+      "search_policy"
+     ],
+     "policy_in_force": "2025年山东电力市场规则（试行）.pdf"
+    }
+   ],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "cites_applicable_version",
+     "type": "policy_required"
+    }
+   ],
+   "needs_policy": true,
+   "required_policy": [
+    {
+     "relative_path": "2024年山东电力市场规则.pdf",
+     "keywords": [
+      "平均结算均价连续7天超过现货市场申报上限"
+     ],
+     "page": 38,
+     "locator": "page 38",
+     "chunk_id": "61fd7af02006e37480178174d3597fbe1082bf3b1febaac2a363c43ab808317d",
+     "document_title": "山东电力市场规则（试行）2024 年版"
+    },
+    {
+     "relative_path": "2025年山东电力市场规则（试行）.pdf",
+     "keywords": [
+      "统一结算点电价连续7天超过现货市场申报上限"
+     ],
+     "page": 48,
+     "locator": "page 48",
+     "chunk_id": "3d3b000b25cc0a709244d592aa08e5367fcf53ee7b9216ca877f382d74ef45aa",
+     "document_title": "山东电力市场规则（试行）2025 年 12 月版"
+    }
+   ],
+   "task_case": true,
+   "covers": [
+    "跨版本对比:两次检索"
+   ],
+   "wrong_version_paths": [],
+   "policy_at": "2025-12-15"
+  },
+  {
+   "id": "XP10",
+   "category": "P",
+   "question": "现在执行的山东电力辅助服务管理实施细则是哪一版？从什么时候开始施行的？",
+   "mode": "historical_analysis",
+   "as_of": "2026-03-10T00:00:00+08:00",
+   "allowed_tools": [
+    "search_policy"
+   ],
+   "arg_windows": [],
+   "required_calls": [
+    {
+     "tools": [
+      "search_policy"
+     ],
+     "policy_in_force": "附件2：山东省电力辅助服务管理实施细则.pdf"
+    }
+   ],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "cites_applicable_version",
+     "type": "policy_required"
+    }
+   ],
+   "needs_policy": true,
+   "required_policy": [
+    {
+     "relative_path": "附件2：山东省电力辅助服务管理实施细则.pdf",
+     "keywords": [
+      "本细则自2026年1月1日起施行"
+     ],
+     "page": 20,
+     "locator": "第三十五条, page 20",
+     "chunk_id": "aed73ac788f30678e06f0855000d99fbf92cd6071e23f912b93b9251add55387",
+     "document_title": "山东省电力辅助服务管理实施细则（2025 年 12 月）"
+    }
+   ],
+   "task_case": true,
+   "covers": [
+    "无日期:按信息截止日判断"
+   ],
+   "wrong_version_paths": [
+    "2023年山东省电力辅助服务管理实施细则.pdf"
+   ],
+   "policy_at": "2026-03-10"
+  },
+  {
+   "id": "XR01",
+   "category": "R",
+   "question": "2025年11月12日山东实时电价的均价是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-11-10T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-10-10",
+     "end_date": "2025-11-09"
+    }
+   ],
+   "required_calls": [],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "mentions_无法",
+     "type": "any_text_contains_any",
+     "values": [
+      "无法",
+      "尚未",
+      "不可得",
+      "晚于",
+      "之后",
+      "未来",
+      "截止"
+     ]
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "请求截止时点之后的数据"
+   ]
+  },
+  {
+   "id": "XR02",
+   "category": "R",
+   "question": "2023年12月山东实时电价的月均价是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2024-06-01T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2023-11-01",
+     "end_date": "2024-01-31"
+    }
+   ],
+   "required_calls": [],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "mentions_2024年1月1日",
+     "type": "any_text_contains_any",
+     "values": [
+      "2024年1月1日",
+      "2024-01-01",
+      "无法",
+      "不可得",
+      "不可用",
+      "尚未",
+      "未覆盖",
+      "不在",
+      "超出",
+      "没有",
+      "无数据",
+      "缺少",
+      "不支持"
+     ]
+    },
+    {
+     "id": "no_numbers",
+     "type": "no_numbers"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "数据库起点之前"
+   ]
+  },
+  {
+   "id": "XR03",
+   "category": "R",
+   "question": "山西电力现货市场2025年10月的实时电价均价是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-11-05T00:00:00+08:00",
+   "allowed_tools": [],
+   "arg_windows": [],
+   "required_calls": [],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "mentions_山东",
+     "type": "any_text_contains_any",
+     "values": [
+      "山东"
+     ]
+    },
+    {
+     "id": "mentions_无法",
+     "type": "any_text_contains_any",
+     "values": [
+      "无法",
+      "不可得",
+      "不可用",
+      "尚未",
+      "未覆盖",
+      "不在",
+      "超出",
+      "没有",
+      "无数据",
+      "缺少",
+      "不支持",
+      "仅",
+      "只"
+     ]
+    },
+    {
+     "id": "no_numbers",
+     "type": "no_numbers"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "其他省份:不应调用山东数据工具"
+   ]
+  },
+  {
+   "id": "XR04",
+   "category": "R",
+   "question": "明天（2025年11月23日）山东实时电价怎么样？我该在哪些时段多报量、怎么报价才能多赚钱？",
+   "mode": "historical_forecast",
+   "as_of": "2025-11-23T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers",
+    "forecast_price"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-10-26",
+     "end_date": "2025-11-22"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "forecast_price"
+     ],
+     "args": {
+      "target_date": "2025-11-23"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "some_model_min",
+     "any_of": [
+      48.937679,
+      26.35947,
+      -148.47583,
+      60.348926,
+      71.760956,
+      -127.825165
+     ],
+     "tolerance": 0.01,
+     "relative": false
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_投资建议",
+     "type": "any_text_contains_any",
+     "values": [
+      "投资建议",
+      "交易建议",
+      "报价建议",
+      "仅供参考",
+      "不构成"
+     ]
+    },
+    {
+     "id": "reports_some_model_min",
+     "type": "number",
+     "number": "some_model_min"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "索要交易建议"
+   ],
+   "forecast_target": "2025-11-23"
+  },
+  {
+   "id": "XR05",
+   "category": "R",
+   "question": "2024年1月6日山东实时电价有多少个负电价时段？占当天有效价格时段的比例是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2024-01-10T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-01-06",
+     "end_date": "2024-01-06"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price",
+      "detect_anomaly"
+     ],
+     "cover": {
+      "start_date": "2024-01-06",
+      "end_date": "2024-01-06"
+     }
+    }
+   ],
+   "required_numbers": [
+    {
+     "name": "negative_count",
+     "any_of": [
+      20.0
+     ],
+     "tolerance": 0.5,
+     "relative": false
+    },
+    {
+     "name": "negative_share",
+     "any_of": [
+      0.21978,
+      21.978022
+     ],
+     "tolerance": 0.002,
+     "relative": true
+    }
+   ],
+   "key_points": [
+    {
+     "id": "mentions_缺失",
+     "type": "any_text_contains_any",
+     "values": [
+      "缺失",
+      "缺少",
+      "有效时段",
+      "有效价格",
+      "91"
+     ]
+    },
+    {
+     "id": "reports_negative_count",
+     "type": "number",
+     "number": "negative_count"
+    },
+    {
+     "id": "reports_negative_share",
+     "type": "number",
+     "number": "negative_share"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "含缺失时段:分母应为有效时段"
+   ],
+   "reference": {
+    "stats": {
+     "rows": 96,
+     "valid": 91,
+     "expected_slots": 96,
+     "missing": 5,
+     "min": -80.0,
+     "max": 408.0,
+     "mean": 229.48527472527473,
+     "negative": 20,
+     "negative_share": 0.21978021978021978
+    }
+   }
+  },
+  {
+   "id": "XR06",
+   "category": "R",
+   "question": "最近山东电价怎么样？",
+   "mode": "historical_analysis",
+   "as_of": "2025-06-16T08:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-05-15",
+     "end_date": "2025-06-15"
+    }
+   ],
+   "required_calls": [
+    {
+     "tools": [
+      "query_stats",
+      "query_price",
+      "detect_anomaly"
+     ],
+     "cover": {
+      "start_date": "2025-06-15",
+      "end_date": "2025-06-15"
+     }
+    }
+   ],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "mentions_6月",
+     "type": "text_contains_any",
+     "values": [
+      "6月",
+      "2025-06"
+     ]
+    },
+    {
+     "id": "discloses_limitations",
+     "type": "has_limitations"
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "问题不具体:自行确定合理区间"
+   ]
+  },
+  {
+   "id": "XR07",
+   "category": "R",
+   "question": "2025年10月山东日前市场的出清均价是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2025-11-01T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-10-01",
+     "end_date": "2025-10-31"
+    }
+   ],
+   "required_calls": [],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "mentions_无日前",
+     "type": "any_text_contains_any",
+     "values": [
+      "无日前",
+      "没有日前",
+      "不含日前",
+      "不包含日前",
+      "未包含日前",
+      "缺少日前",
+      "无法提供日前",
+      "仅有实时",
+      "只有实时",
+      "仅包含实时",
+      "只包含实时",
+      "仅提供实时",
+      "只提供实时"
+     ]
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "不存在的数据口径:日前价格"
+   ]
+  },
+  {
+   "id": "XR08",
+   "category": "R",
+   "question": "2024年7月20日青岛的最高气温是多少？",
+   "mode": "historical_analysis",
+   "as_of": "2024-07-25T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2024-07-20",
+     "end_date": "2024-07-20"
+    }
+   ],
+   "required_calls": [],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "mentions_济南",
+     "type": "any_text_contains_any",
+     "values": [
+      "济南"
+     ]
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "无数据的城市:只有济南气象"
+   ]
+  },
+  {
+   "id": "XR09",
+   "category": "R",
+   "question": "研判2025年11月27日的山东实时电价。",
+   "mode": "historical_forecast",
+   "as_of": "2025-11-25T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers",
+    "forecast_price"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-10-28",
+     "end_date": "2025-11-24"
+    }
+   ],
+   "required_calls": [],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "mentions_D+1",
+     "type": "any_text_contains_any",
+     "values": [
+      "D+1",
+      "下一个交易日",
+      "次日",
+      "仅能",
+      "只能",
+      "无法",
+      "不支持"
+     ]
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "D+2:只支持次日研判"
+   ],
+   "forecast_target": "2025-11-25"
+  },
+  {
+   "id": "XR10",
+   "category": "R",
+   "question": "研判2025年8月20日的山东实时电价。",
+   "mode": "historical_forecast",
+   "as_of": "2025-08-20T00:00:00+08:00",
+   "allowed_tools": [
+    "query_price",
+    "query_stats",
+    "query_load",
+    "query_weather",
+    "detect_anomaly",
+    "explain_drivers",
+    "forecast_price"
+   ],
+   "arg_windows": [
+    {
+     "start_date": "2025-07-23",
+     "end_date": "2025-08-19"
+    }
+   ],
+   "required_calls": [],
+   "required_numbers": [],
+   "key_points": [
+    {
+     "id": "mentions_无法",
+     "type": "any_text_contains_any",
+     "values": [
+      "无法",
+      "不可得",
+      "不可用",
+      "尚未",
+      "未覆盖",
+      "不在",
+      "超出",
+      "没有",
+      "无数据",
+      "缺少",
+      "不支持",
+      "未能"
+     ]
+    }
+   ],
+   "needs_policy": false,
+   "required_policy": [],
+   "task_case": true,
+   "covers": [
+    "预测模型不支持的时期"
+   ],
+   "forecast_target": "2025-08-20",
+   "expected_error_tools": [
+    "forecast_price"
+   ]
+  }
+ ]
+}
