@@ -59,7 +59,10 @@ LangGraph 实现，提供四种配置用于对照实验：
 - 不可答问题正确拒答 30/30，部分可答 36/36，零误答、零误拒；取错行 0 次。
 - 政策检索：Recall@5 95.7%、MRR 0.935；三模型点预测 MAE 比最好的基线低 34.8%。
 
-评测方法见 [`docs/评测方案v2.md`](docs/评测方案v2.md)，开发过程、每轮修复和失败机制分析见 [`docs/市场Agent改进与进度记录.md`](docs/市场Agent改进与进度记录.md)，完整打分输出见 `ellectric/eval/market/results/test_v3/summary_v2.md`。
+- 项目概览、改进历程和可引用的数字：[`docs/市场Agent改进与进度记录.md`](docs/市场Agent改进与进度记录.md)（建议先读）
+- 评测设计：[`docs/评测方案v2.md`](docs/评测方案v2.md)
+- 每轮改动和评测的原始数字：[`docs/开发过程详细记录.md`](docs/开发过程详细记录.md)
+- 完整打分输出：`ellectric/eval/market/results/test_v3/summary_v2.md`
 
 ## 快速开始
 
@@ -120,7 +123,7 @@ ellectric/
   tests/        单元测试
   web/          React 前端源码
 docker/         市场服务 Dockerfile
-docs/           评测方案、改进与进度记录、政策元数据核对表
+docs/           改进与进度概览、开发过程详细记录、评测方案、政策元数据核对表
 ```
 
 ## 已知限制
