@@ -1,0 +1,7067 @@
+{
+ "set": "multiturn_dev_v1",
+ "version": 1,
+ "kind": "multiturn",
+ "split": "dev",
+ "seed": 1101,
+ "built_at": "2026-11-18T20:04:58",
+ "dialogue_count": 40,
+ "turn_count": 84,
+ "cases_sha256": "b7300357253c410874a2d6094c328dd351055111d771ce6ce89e0983a0d61154",
+ "templates": {
+  "shift_day": 4,
+  "swap_metric": 4,
+  "found_entity": 4,
+  "next_month": 4,
+  "last_year": 4,
+  "correction": 4,
+  "topic_switch": 4,
+  "ambiguous": 4,
+  "cross_turn_compare": 4,
+  "same_slot_prev_day": 4
+ },
+ "dialogues": [
+  {
+   "template": "shift_day",
+   "kind": "omission",
+   "as_of": "2024-09-27T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年9月26日山东实时电价的日均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年9月26日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2024-09-26"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年9月26日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-09-27T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-09-26",
+        "end_date": "2024-09-26"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-09-26",
+         "end_date": "2024-09-26"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         370.331875
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-09-26",
+         "end_date": "2024-09-26"
+        }
+       }
+      ],
+      "id": "MV001_t1",
+      "dialogue_template": "shift_day"
+     },
+     "turn_id": "MV001_t1"
+    },
+    {
+     "utterance": "前一天的呢？",
+     "expect": "proceed",
+     "gold_question": "2024年9月25日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2024-09-25"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年9月25日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-09-27T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-09-25",
+        "end_date": "2024-09-25"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-09-25",
+         "end_date": "2024-09-25"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         369.749062
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-09-25",
+         "end_date": "2024-09-25"
+        }
+       }
+      ],
+      "id": "MV001_t2",
+      "dialogue_template": "shift_day"
+     },
+     "turn_id": "MV001_t2"
+    }
+   ],
+   "id": "MV001"
+  },
+  {
+   "template": "shift_day",
+   "kind": "omission",
+   "as_of": "2024-01-29T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年1月28日山东实时电价的最低价是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年1月28日山东实时电价的最低价是多少？",
+     "gold_periods": [
+      "2024-01-28"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年1月28日山东实时电价的最低价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-01-29T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-01-28",
+        "end_date": "2024-01-28"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-01-28",
+         "end_date": "2024-01-28"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "min",
+        "any_of": [
+         -80.0
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_min",
+        "type": "number",
+        "number": "min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-01-28",
+         "end_date": "2024-01-28"
+        }
+       }
+      ],
+      "id": "MV002_t1",
+      "dialogue_template": "shift_day"
+     },
+     "turn_id": "MV002_t1"
+    },
+    {
+     "utterance": "那前一天呢？",
+     "expect": "proceed",
+     "gold_question": "2024年1月27日山东实时电价的最低价是多少？",
+     "gold_periods": [
+      "2024-01-27"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年1月27日山东实时电价的最低价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-01-29T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-01-27",
+        "end_date": "2024-01-27"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-01-27",
+         "end_date": "2024-01-27"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "min",
+        "any_of": [
+         -80.0
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_min",
+        "type": "number",
+        "number": "min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-01-27",
+         "end_date": "2024-01-27"
+        }
+       }
+      ],
+      "id": "MV002_t2",
+      "dialogue_template": "shift_day"
+     },
+     "turn_id": "MV002_t2"
+    }
+   ],
+   "id": "MV002"
+  },
+  {
+   "template": "shift_day",
+   "kind": "omission",
+   "as_of": "2024-08-11T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年8月10日山东实时电价的最低价是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年8月10日山东实时电价的最低价是多少？",
+     "gold_periods": [
+      "2024-08-10"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年8月10日山东实时电价的最低价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-08-11T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-08-10",
+        "end_date": "2024-08-10"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-08-10",
+         "end_date": "2024-08-10"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "min",
+        "any_of": [
+         138.31
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_min",
+        "type": "number",
+        "number": "min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-08-10",
+         "end_date": "2024-08-10"
+        }
+       }
+      ],
+      "id": "MV003_t1",
+      "dialogue_template": "shift_day"
+     },
+     "turn_id": "MV003_t1"
+    },
+    {
+     "utterance": "前一天的呢？",
+     "expect": "proceed",
+     "gold_question": "2024年8月9日山东实时电价的最低价是多少？",
+     "gold_periods": [
+      "2024-08-09"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年8月9日山东实时电价的最低价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-08-11T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-08-09",
+        "end_date": "2024-08-09"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-08-09",
+         "end_date": "2024-08-09"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "min",
+        "any_of": [
+         382.12
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_min",
+        "type": "number",
+        "number": "min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-08-09",
+         "end_date": "2024-08-09"
+        }
+       }
+      ],
+      "id": "MV003_t2",
+      "dialogue_template": "shift_day"
+     },
+     "turn_id": "MV003_t2"
+    }
+   ],
+   "id": "MV003"
+  },
+  {
+   "template": "shift_day",
+   "kind": "omission",
+   "as_of": "2025-07-14T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年7月13日山东实时电价的最低价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年7月13日山东实时电价的最低价是多少？",
+     "gold_periods": [
+      "2025-07-13"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年7月13日山东实时电价的最低价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-07-14T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-07-13",
+        "end_date": "2025-07-13"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-07-13",
+         "end_date": "2025-07-13"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "min",
+        "any_of": [
+         -9.05
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_min",
+        "type": "number",
+        "number": "min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-07-13",
+         "end_date": "2025-07-13"
+        }
+       }
+      ],
+      "id": "MV004_t1",
+      "dialogue_template": "shift_day"
+     },
+     "turn_id": "MV004_t1"
+    },
+    {
+     "utterance": "那前一天呢？",
+     "expect": "proceed",
+     "gold_question": "2025年7月12日山东实时电价的最低价是多少？",
+     "gold_periods": [
+      "2025-07-12"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年7月12日山东实时电价的最低价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-07-14T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-07-12",
+        "end_date": "2025-07-12"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-07-12",
+         "end_date": "2025-07-12"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "min",
+        "any_of": [
+         -2.01
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_min",
+        "type": "number",
+        "number": "min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-07-12",
+         "end_date": "2025-07-12"
+        }
+       }
+      ],
+      "id": "MV004_t2",
+      "dialogue_template": "shift_day"
+     },
+     "turn_id": "MV004_t2"
+    }
+   ],
+   "id": "MV004"
+  },
+  {
+   "template": "swap_metric",
+   "kind": "reference",
+   "as_of": "2024-01-04T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年1月3日山东实时电价的最高价是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年1月3日山东实时电价的最高价是多少？",
+     "gold_periods": [
+      "2024-01-03"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年1月3日山东实时电价的最高价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-01-04T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-01-03",
+        "end_date": "2024-01-03"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-01-03",
+         "end_date": "2024-01-03"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "max",
+        "any_of": [
+         398.0
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_max",
+        "type": "number",
+        "number": "max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-01-03",
+         "end_date": "2024-01-03"
+        }
+       }
+      ],
+      "id": "MV005_t1",
+      "dialogue_template": "swap_metric"
+     },
+     "turn_id": "MV005_t1"
+    },
+    {
+     "utterance": "那天济南最高气温多少度？",
+     "expect": "proceed",
+     "gold_question": "2024年1月3日济南的最高气温是多少摄氏度？",
+     "gold_periods": [
+      "2024-01-03"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_temp",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年1月3日济南的最高气温是多少摄氏度？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-01-04T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-01-03",
+        "end_date": "2024-01-03"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_weather",
+         "query_stats"
+        ],
+        "cover": {
+         "start_date": "2024-01-03",
+         "end_date": "2024-01-03"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "temp_max",
+        "any_of": [
+         6.4
+        ],
+        "tolerance": 0.05,
+        "relative": false,
+        "field": "temp_jinan"
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_temp_max",
+        "type": "number",
+        "number": "temp_max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_weather",
+        "args": {
+         "start_date": "2024-01-03",
+         "end_date": "2024-01-03"
+        }
+       }
+      ],
+      "id": "MV005_t2",
+      "dialogue_template": "swap_metric"
+     },
+     "turn_id": "MV005_t2"
+    }
+   ],
+   "id": "MV005"
+  },
+  {
+   "template": "swap_metric",
+   "kind": "reference",
+   "as_of": "2025-03-01T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年2月28日山东实时电价的日均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年2月28日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2025-02-28"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年2月28日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-03-01T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-02-28",
+        "end_date": "2025-02-28"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-02-28",
+         "end_date": "2025-02-28"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         316.294271
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-02-28",
+         "end_date": "2025-02-28"
+        }
+       }
+      ],
+      "id": "MV006_t1",
+      "dialogue_template": "swap_metric"
+     },
+     "turn_id": "MV006_t1"
+    },
+    {
+     "utterance": "当天济南最热到几度？",
+     "expect": "proceed",
+     "gold_question": "2025年2月28日济南的最高气温是多少摄氏度？",
+     "gold_periods": [
+      "2025-02-28"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_temp",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年2月28日济南的最高气温是多少摄氏度？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-03-01T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-02-28",
+        "end_date": "2025-02-28"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_weather",
+         "query_stats"
+        ],
+        "cover": {
+         "start_date": "2025-02-28",
+         "end_date": "2025-02-28"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "temp_max",
+        "any_of": [
+         21.4
+        ],
+        "tolerance": 0.05,
+        "relative": false,
+        "field": "temp_jinan"
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_temp_max",
+        "type": "number",
+        "number": "temp_max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_weather",
+        "args": {
+         "start_date": "2025-02-28",
+         "end_date": "2025-02-28"
+        }
+       }
+      ],
+      "id": "MV006_t2",
+      "dialogue_template": "swap_metric"
+     },
+     "turn_id": "MV006_t2"
+    }
+   ],
+   "id": "MV006"
+  },
+  {
+   "template": "swap_metric",
+   "kind": "reference",
+   "as_of": "2025-02-05T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年2月4日山东实时电价的日均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年2月4日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2025-02-04"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年2月4日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-02-05T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-02-04",
+        "end_date": "2025-02-04"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-02-04",
+         "end_date": "2025-02-04"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         281.911667
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-02-04",
+         "end_date": "2025-02-04"
+        }
+       }
+      ],
+      "id": "MV007_t1",
+      "dialogue_template": "swap_metric"
+     },
+     "turn_id": "MV007_t1"
+    },
+    {
+     "utterance": "当天负荷峰值是多少兆瓦？",
+     "expect": "proceed",
+     "gold_question": "2025年2月4日山东全网实际负荷的最大值是多少兆瓦？",
+     "gold_periods": [
+      "2025-02-04"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_load",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年2月4日山东全网实际负荷的最大值是多少兆瓦？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-02-05T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-02-04",
+        "end_date": "2025-02-04"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_load",
+         "query_stats"
+        ],
+        "cover": {
+         "start_date": "2025-02-04",
+         "end_date": "2025-02-04"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "load_actual_mw_max",
+        "any_of": [
+         67607.86
+        ],
+        "tolerance": 0.5,
+        "relative": false,
+        "field": "load_actual_mw",
+        "keys": {
+         "date": "2025-02-04"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_load_actual_mw_max",
+        "type": "number",
+        "number": "load_actual_mw_max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_load",
+        "args": {
+         "start_date": "2025-02-04",
+         "end_date": "2025-02-04"
+        }
+       }
+      ],
+      "id": "MV007_t2",
+      "dialogue_template": "swap_metric"
+     },
+     "turn_id": "MV007_t2"
+    }
+   ],
+   "id": "MV007"
+  },
+  {
+   "template": "swap_metric",
+   "kind": "reference",
+   "as_of": "2025-09-26T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年9月25日山东实时电价的最高价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年9月25日山东实时电价的最高价是多少？",
+     "gold_periods": [
+      "2025-09-25"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年9月25日山东实时电价的最高价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-09-26T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-09-25",
+        "end_date": "2025-09-25"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-09-25",
+         "end_date": "2025-09-25"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "max",
+        "any_of": [
+         527.74
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_max",
+        "type": "number",
+        "number": "max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-09-25",
+         "end_date": "2025-09-25"
+        }
+       }
+      ],
+      "id": "MV008_t1",
+      "dialogue_template": "swap_metric"
+     },
+     "turn_id": "MV008_t1"
+    },
+    {
+     "utterance": "那天全网实际负荷最大多少？",
+     "expect": "proceed",
+     "gold_question": "2025年9月25日山东全网实际负荷的最大值是多少兆瓦？",
+     "gold_periods": [
+      "2025-09-25"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_load",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年9月25日山东全网实际负荷的最大值是多少兆瓦？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-09-26T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-09-25",
+        "end_date": "2025-09-25"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_load",
+         "query_stats"
+        ],
+        "cover": {
+         "start_date": "2025-09-25",
+         "end_date": "2025-09-25"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "load_actual_mw_max",
+        "any_of": [
+         74323.1
+        ],
+        "tolerance": 0.5,
+        "relative": false,
+        "field": "load_actual_mw",
+        "keys": {
+         "date": "2025-09-25"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_load_actual_mw_max",
+        "type": "number",
+        "number": "load_actual_mw_max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_load",
+        "args": {
+         "start_date": "2025-09-25",
+         "end_date": "2025-09-25"
+        }
+       }
+      ],
+      "id": "MV008_t2",
+      "dialogue_template": "swap_metric"
+     },
+     "turn_id": "MV008_t2"
+    }
+   ],
+   "id": "MV008"
+  },
+  {
+   "template": "found_entity",
+   "kind": "reference",
+   "as_of": "2025-02-11T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年1月14日至2025年2月10日，山东日均实时电价最高的是哪一天？",
+     "expect": "proceed",
+     "gold_question": "2025年1月14日至2025年2月10日，山东日均实时电价最高的是哪一天？",
+     "gold_periods": [
+      "2025-01-14",
+      "2025-02-10"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_peakday",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年1月14日至2025年2月10日，山东日均实时电价最高的是哪一天？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-02-11T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-01-14",
+        "end_date": "2025-02-10"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-01-14",
+         "end_date": "2025-02-10"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "daily_mean",
+        "any_of": [
+         345.759375
+        ],
+        "tolerance": 0.01,
+        "relative": false,
+        "field": "",
+        "keys": {
+         "date": "2025-01-24"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "mentions_2025-01-24",
+        "type": "text_contains_any",
+        "values": [
+         "2025-01-24",
+         "1月24日"
+        ]
+       },
+       {
+        "id": "reports_daily_mean",
+        "type": "number",
+        "number": "daily_mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-01-14",
+         "end_date": "2025-02-10",
+         "group_by": "day"
+        }
+       }
+      ],
+      "id": "MV009_t1",
+      "dialogue_template": "found_entity"
+     },
+     "turn_id": "MV009_t1"
+    },
+    {
+     "utterance": "那一天的负荷峰值是多少兆瓦？",
+     "expect": "proceed",
+     "gold_question": "2025年1月24日山东全网实际负荷的最大值是多少兆瓦？",
+     "gold_periods": [
+      "2025-01-24"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_load",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年1月24日山东全网实际负荷的最大值是多少兆瓦？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-02-11T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-01-24",
+        "end_date": "2025-01-24"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_load",
+         "query_stats"
+        ],
+        "cover": {
+         "start_date": "2025-01-24",
+         "end_date": "2025-01-24"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "load_actual_mw_max",
+        "any_of": [
+         68010.37
+        ],
+        "tolerance": 0.5,
+        "relative": false,
+        "field": "load_actual_mw",
+        "keys": {
+         "date": "2025-01-24"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_load_actual_mw_max",
+        "type": "number",
+        "number": "load_actual_mw_max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_load",
+        "args": {
+         "start_date": "2025-01-24",
+         "end_date": "2025-01-24"
+        }
+       }
+      ],
+      "id": "MV009_t2",
+      "dialogue_template": "found_entity"
+     },
+     "turn_id": "MV009_t2"
+    }
+   ],
+   "id": "MV009"
+  },
+  {
+   "template": "found_entity",
+   "kind": "reference",
+   "as_of": "2025-08-01T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年7月1日至2025年7月31日，山东日均实时电价最高的是哪一天？",
+     "expect": "proceed",
+     "gold_question": "2025年7月1日至2025年7月31日，山东日均实时电价最高的是哪一天？",
+     "gold_periods": [
+      "2025-07-01",
+      "2025-07-31"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_peakday",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年7月1日至2025年7月31日，山东日均实时电价最高的是哪一天？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-01T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-07-01",
+        "end_date": "2025-07-31"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-07-01",
+         "end_date": "2025-07-31"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "daily_mean",
+        "any_of": [
+         447.004792
+        ],
+        "tolerance": 0.01,
+        "relative": false,
+        "field": "",
+        "keys": {
+         "date": "2025-07-01"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "mentions_2025-07-01",
+        "type": "text_contains_any",
+        "values": [
+         "2025-07-01",
+         "7月1日"
+        ]
+       },
+       {
+        "id": "reports_daily_mean",
+        "type": "number",
+        "number": "daily_mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-07-01",
+         "end_date": "2025-07-31",
+         "group_by": "day"
+        }
+       }
+      ],
+      "id": "MV010_t1",
+      "dialogue_template": "found_entity"
+     },
+     "turn_id": "MV010_t1"
+    },
+    {
+     "utterance": "那天全网实际负荷最高是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年7月1日山东全网实际负荷的最大值是多少兆瓦？",
+     "gold_periods": [
+      "2025-07-01"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_load",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年7月1日山东全网实际负荷的最大值是多少兆瓦？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-01T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-07-01",
+        "end_date": "2025-07-01"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_load",
+         "query_stats"
+        ],
+        "cover": {
+         "start_date": "2025-07-01",
+         "end_date": "2025-07-01"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "load_actual_mw_max",
+        "any_of": [
+         85217.695
+        ],
+        "tolerance": 0.5,
+        "relative": false,
+        "field": "load_actual_mw",
+        "keys": {
+         "date": "2025-07-01"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_load_actual_mw_max",
+        "type": "number",
+        "number": "load_actual_mw_max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_load",
+        "args": {
+         "start_date": "2025-07-01",
+         "end_date": "2025-07-01"
+        }
+       }
+      ],
+      "id": "MV010_t2",
+      "dialogue_template": "found_entity"
+     },
+     "turn_id": "MV010_t2"
+    }
+   ],
+   "id": "MV010"
+  },
+  {
+   "template": "found_entity",
+   "kind": "reference",
+   "as_of": "2025-08-31T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年8月7日至2025年8月30日，山东日均实时电价最高的是哪一天？",
+     "expect": "proceed",
+     "gold_question": "2025年8月7日至2025年8月30日，山东日均实时电价最高的是哪一天？",
+     "gold_periods": [
+      "2025-08-07",
+      "2025-08-30"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_peakday",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年8月7日至2025年8月30日，山东日均实时电价最高的是哪一天？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-31T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-08-07",
+        "end_date": "2025-08-30"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-08-07",
+         "end_date": "2025-08-30"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "daily_mean",
+        "any_of": [
+         519.171458
+        ],
+        "tolerance": 0.01,
+        "relative": false,
+        "field": "",
+        "keys": {
+         "date": "2025-08-22"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "mentions_2025-08-22",
+        "type": "text_contains_any",
+        "values": [
+         "2025-08-22",
+         "8月22日"
+        ]
+       },
+       {
+        "id": "reports_daily_mean",
+        "type": "number",
+        "number": "daily_mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-08-07",
+         "end_date": "2025-08-30",
+         "group_by": "day"
+        }
+       }
+      ],
+      "id": "MV011_t1",
+      "dialogue_template": "found_entity"
+     },
+     "turn_id": "MV011_t1"
+    },
+    {
+     "utterance": "那天全网实际负荷最高是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年8月22日山东全网实际负荷的最大值是多少兆瓦？",
+     "gold_periods": [
+      "2025-08-22"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_load",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年8月22日山东全网实际负荷的最大值是多少兆瓦？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-31T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-08-22",
+        "end_date": "2025-08-22"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_load",
+         "query_stats"
+        ],
+        "cover": {
+         "start_date": "2025-08-22",
+         "end_date": "2025-08-22"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "load_actual_mw_max",
+        "any_of": [
+         107024.45
+        ],
+        "tolerance": 0.5,
+        "relative": false,
+        "field": "load_actual_mw",
+        "keys": {
+         "date": "2025-08-22"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_load_actual_mw_max",
+        "type": "number",
+        "number": "load_actual_mw_max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_load",
+        "args": {
+         "start_date": "2025-08-22",
+         "end_date": "2025-08-22"
+        }
+       }
+      ],
+      "id": "MV011_t2",
+      "dialogue_template": "found_entity"
+     },
+     "turn_id": "MV011_t2"
+    }
+   ],
+   "id": "MV011"
+  },
+  {
+   "template": "found_entity",
+   "kind": "reference",
+   "as_of": "2024-03-27T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年2月28日至2024年3月26日，山东日均实时电价最高的是哪一天？",
+     "expect": "proceed",
+     "gold_question": "2024年2月28日至2024年3月26日，山东日均实时电价最高的是哪一天？",
+     "gold_periods": [
+      "2024-02-28",
+      "2024-03-26"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_peakday",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年2月28日至2024年3月26日，山东日均实时电价最高的是哪一天？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-03-27T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-02-28",
+        "end_date": "2024-03-26"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-02-28",
+         "end_date": "2024-03-26"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "daily_mean",
+        "any_of": [
+         547.378208
+        ],
+        "tolerance": 0.01,
+        "relative": false,
+        "field": "",
+        "keys": {
+         "date": "2024-03-04"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "mentions_2024-03-04",
+        "type": "text_contains_any",
+        "values": [
+         "2024-03-04",
+         "3月4日"
+        ]
+       },
+       {
+        "id": "reports_daily_mean",
+        "type": "number",
+        "number": "daily_mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-02-28",
+         "end_date": "2024-03-26",
+         "group_by": "day"
+        }
+       }
+      ],
+      "id": "MV012_t1",
+      "dialogue_template": "found_entity"
+     },
+     "turn_id": "MV012_t1"
+    },
+    {
+     "utterance": "那天全网实际负荷最高是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年3月4日山东全网实际负荷的最大值是多少兆瓦？",
+     "gold_periods": [
+      "2024-03-04"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_load",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年3月4日山东全网实际负荷的最大值是多少兆瓦？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-03-27T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-03-04",
+        "end_date": "2024-03-04"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_load",
+         "query_stats"
+        ],
+        "cover": {
+         "start_date": "2024-03-04",
+         "end_date": "2024-03-04"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "load_actual_mw_max",
+        "any_of": [
+         77383.320313
+        ],
+        "tolerance": 0.5,
+        "relative": false,
+        "field": "load_actual_mw",
+        "keys": {
+         "date": "2024-03-04"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_load_actual_mw_max",
+        "type": "number",
+        "number": "load_actual_mw_max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_load",
+        "args": {
+         "start_date": "2024-03-04",
+         "end_date": "2024-03-04"
+        }
+       }
+      ],
+      "id": "MV012_t2",
+      "dialogue_template": "found_entity"
+     },
+     "turn_id": "MV012_t2"
+    }
+   ],
+   "id": "MV012"
+  },
+  {
+   "template": "next_month",
+   "kind": "omission",
+   "as_of": "2024-09-01T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年7月山东实时电价的均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年7月山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2024-07"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年7月山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-09-01T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-07-01",
+        "end_date": "2024-07-31"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-07-01",
+         "end_date": "2024-07-31"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         359.952392
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-07-01",
+         "end_date": "2024-07-31"
+        }
+       }
+      ],
+      "id": "MV013_t1",
+      "dialogue_template": "next_month"
+     },
+     "turn_id": "MV013_t1"
+    },
+    {
+     "utterance": "下一个月的呢？",
+     "expect": "proceed",
+     "gold_question": "2024年8月山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2024-08"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年8月山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-09-01T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-08-01",
+        "end_date": "2024-08-31"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-08-01",
+         "end_date": "2024-08-31"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         424.151526
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-08-01",
+         "end_date": "2024-08-31"
+        }
+       }
+      ],
+      "id": "MV013_t2",
+      "dialogue_template": "next_month"
+     },
+     "turn_id": "MV013_t2"
+    }
+   ],
+   "id": "MV013"
+  },
+  {
+   "template": "next_month",
+   "kind": "omission",
+   "as_of": "2024-04-01T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年2月山东实时电价的均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年2月山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2024-02"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年2月山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-04-01T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-02-01",
+        "end_date": "2024-02-29"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-02-01",
+         "end_date": "2024-02-29"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         197.410693
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-02-01",
+         "end_date": "2024-02-29"
+        }
+       }
+      ],
+      "id": "MV014_t1",
+      "dialogue_template": "next_month"
+     },
+     "turn_id": "MV014_t1"
+    },
+    {
+     "utterance": "下一个月的呢？",
+     "expect": "proceed",
+     "gold_question": "2024年3月山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2024-03"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年3月山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-04-01T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-03-01",
+        "end_date": "2024-03-31"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-03-01",
+         "end_date": "2024-03-31"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         223.017378
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-03-01",
+         "end_date": "2024-03-31"
+        }
+       }
+      ],
+      "id": "MV014_t2",
+      "dialogue_template": "next_month"
+     },
+     "turn_id": "MV014_t2"
+    }
+   ],
+   "id": "MV014"
+  },
+  {
+   "template": "next_month",
+   "kind": "omission",
+   "as_of": "2024-04-01T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年2月山东实时电价的均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年2月山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2024-02"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年2月山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-04-01T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-02-01",
+        "end_date": "2024-02-29"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-02-01",
+         "end_date": "2024-02-29"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         197.410693
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-02-01",
+         "end_date": "2024-02-29"
+        }
+       }
+      ],
+      "id": "MV015_t1",
+      "dialogue_template": "next_month"
+     },
+     "turn_id": "MV015_t1"
+    },
+    {
+     "utterance": "那下个月呢？",
+     "expect": "proceed",
+     "gold_question": "2024年3月山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2024-03"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年3月山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-04-01T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-03-01",
+        "end_date": "2024-03-31"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-03-01",
+         "end_date": "2024-03-31"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         223.017378
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-03-01",
+         "end_date": "2024-03-31"
+        }
+       }
+      ],
+      "id": "MV015_t2",
+      "dialogue_template": "next_month"
+     },
+     "turn_id": "MV015_t2"
+    }
+   ],
+   "id": "MV015"
+  },
+  {
+   "template": "next_month",
+   "kind": "omission",
+   "as_of": "2025-10-01T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年8月山东实时电价的均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年8月山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2025-08"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年8月山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-10-01T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-08-01",
+        "end_date": "2025-08-31"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-08-01",
+         "end_date": "2025-08-31"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         362.075092
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-08-01",
+         "end_date": "2025-08-31"
+        }
+       }
+      ],
+      "id": "MV016_t1",
+      "dialogue_template": "next_month"
+     },
+     "turn_id": "MV016_t1"
+    },
+    {
+     "utterance": "下一个月的呢？",
+     "expect": "proceed",
+     "gold_question": "2025年9月山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2025-09"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年9月山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-10-01T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-09-01",
+        "end_date": "2025-09-30"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-09-01",
+         "end_date": "2025-09-30"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         330.678381
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-09-01",
+         "end_date": "2025-09-30"
+        }
+       }
+      ],
+      "id": "MV016_t2",
+      "dialogue_template": "next_month"
+     },
+     "turn_id": "MV016_t2"
+    }
+   ],
+   "id": "MV016"
+  },
+  {
+   "template": "last_year",
+   "kind": "omission",
+   "as_of": "2025-02-20T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年2月7日至2025年2月19日山东实时电价的均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年2月7日至2025年2月19日山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2025-02-07",
+      "2025-02-19"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年2月7日至2025年2月19日山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-02-20T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-02-07",
+        "end_date": "2025-02-19"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-02-07",
+         "end_date": "2025-02-19"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         220.242708
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-02-07",
+         "end_date": "2025-02-19"
+        }
+       }
+      ],
+      "id": "MV017_t1",
+      "dialogue_template": "last_year"
+     },
+     "turn_id": "MV017_t1"
+    },
+    {
+     "utterance": "那去年同一时间段是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年2月7日至2024年2月19日山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2024-02-07",
+      "2024-02-19"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年2月7日至2024年2月19日山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-02-20T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-02-07",
+        "end_date": "2024-02-19"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-02-07",
+         "end_date": "2024-02-19"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         126.247396
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-02-07",
+         "end_date": "2024-02-19"
+        }
+       }
+      ],
+      "id": "MV017_t2",
+      "dialogue_template": "last_year"
+     },
+     "turn_id": "MV017_t2"
+    }
+   ],
+   "id": "MV017"
+  },
+  {
+   "template": "last_year",
+   "kind": "omission",
+   "as_of": "2025-07-28T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年7月21日至2025年7月27日山东实时电价的均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年7月21日至2025年7月27日山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2025-07-21",
+      "2025-07-27"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年7月21日至2025年7月27日山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-07-28T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-07-21",
+        "end_date": "2025-07-27"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-07-21",
+         "end_date": "2025-07-27"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         316.296071
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-07-21",
+         "end_date": "2025-07-27"
+        }
+       }
+      ],
+      "id": "MV018_t1",
+      "dialogue_template": "last_year"
+     },
+     "turn_id": "MV018_t1"
+    },
+    {
+     "utterance": "那去年同一时间段是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年7月21日至2024年7月27日山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2024-07-21",
+      "2024-07-27"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年7月21日至2024年7月27日山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-07-28T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-07-21",
+        "end_date": "2024-07-27"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-07-21",
+         "end_date": "2024-07-27"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         388.272292
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-07-21",
+         "end_date": "2024-07-27"
+        }
+       }
+      ],
+      "id": "MV018_t2",
+      "dialogue_template": "last_year"
+     },
+     "turn_id": "MV018_t2"
+    }
+   ],
+   "id": "MV018"
+  },
+  {
+   "template": "last_year",
+   "kind": "omission",
+   "as_of": "2025-07-17T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年7月7日至2025年7月16日山东实时电价的均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年7月7日至2025年7月16日山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2025-07-07",
+      "2025-07-16"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年7月7日至2025年7月16日山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-07-17T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-07-07",
+        "end_date": "2025-07-16"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-07-07",
+         "end_date": "2025-07-16"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         325.761125
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-07-07",
+         "end_date": "2025-07-16"
+        }
+       }
+      ],
+      "id": "MV019_t1",
+      "dialogue_template": "last_year"
+     },
+     "turn_id": "MV019_t1"
+    },
+    {
+     "utterance": "那去年同一时间段是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年7月7日至2024年7月16日山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2024-07-07",
+      "2024-07-16"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年7月7日至2024年7月16日山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-07-17T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-07-07",
+        "end_date": "2024-07-16"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-07-07",
+         "end_date": "2024-07-16"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         383.112542
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-07-07",
+         "end_date": "2024-07-16"
+        }
+       }
+      ],
+      "id": "MV019_t2",
+      "dialogue_template": "last_year"
+     },
+     "turn_id": "MV019_t2"
+    }
+   ],
+   "id": "MV019"
+  },
+  {
+   "template": "last_year",
+   "kind": "omission",
+   "as_of": "2025-03-22T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年3月8日至2025年3月21日山东实时电价的均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年3月8日至2025年3月21日山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2025-03-08",
+      "2025-03-21"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年3月8日至2025年3月21日山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-03-22T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-03-08",
+        "end_date": "2025-03-21"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-03-08",
+         "end_date": "2025-03-21"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         228.581741
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-03-08",
+         "end_date": "2025-03-21"
+        }
+       }
+      ],
+      "id": "MV020_t1",
+      "dialogue_template": "last_year"
+     },
+     "turn_id": "MV020_t1"
+    },
+    {
+     "utterance": "那去年同一时间段是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年3月8日至2024年3月21日山东实时电价的均价是多少？",
+     "gold_periods": [
+      "2024-03-08",
+      "2024-03-21"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_window_mean",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年3月8日至2024年3月21日山东实时电价的均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-03-22T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-03-08",
+        "end_date": "2024-03-21"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-03-08",
+         "end_date": "2024-03-21"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         197.88769
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-03-08",
+         "end_date": "2024-03-21"
+        }
+       }
+      ],
+      "id": "MV020_t2",
+      "dialogue_template": "last_year"
+     },
+     "turn_id": "MV020_t2"
+    }
+   ],
+   "id": "MV020"
+  },
+  {
+   "template": "correction",
+   "kind": "correction",
+   "as_of": "2024-09-02T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年9月1日山东实时电价的最高价是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年9月1日山东实时电价的最高价是多少？",
+     "gold_periods": [
+      "2024-09-01"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年9月1日山东实时电价的最高价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-09-02T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-09-01",
+        "end_date": "2024-09-01"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-09-01",
+         "end_date": "2024-09-01"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "max",
+        "any_of": [
+         683.55
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_max",
+        "type": "number",
+        "number": "max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-09-01",
+         "end_date": "2024-09-01"
+        }
+       }
+      ],
+      "id": "MV021_t1",
+      "dialogue_template": "correction"
+     },
+     "turn_id": "MV021_t1"
+    },
+    {
+     "utterance": "不对，我想问的是日均价。",
+     "expect": "proceed",
+     "gold_question": "2024年9月1日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2024-09-01"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年9月1日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-09-02T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-09-01",
+        "end_date": "2024-09-01"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-09-01",
+         "end_date": "2024-09-01"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         445.5525
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-09-01",
+         "end_date": "2024-09-01"
+        }
+       }
+      ],
+      "id": "MV021_t2",
+      "dialogue_template": "correction"
+     },
+     "turn_id": "MV021_t2"
+    }
+   ],
+   "id": "MV021"
+  },
+  {
+   "template": "correction",
+   "kind": "correction",
+   "as_of": "2024-03-02T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年3月1日山东实时电价的最低价是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年3月1日山东实时电价的最低价是多少？",
+     "gold_periods": [
+      "2024-03-01"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年3月1日山东实时电价的最低价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-03-02T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-03-01",
+        "end_date": "2024-03-01"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-03-01",
+         "end_date": "2024-03-01"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "min",
+        "any_of": [
+         -80.0
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_min",
+        "type": "number",
+        "number": "min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-03-01",
+         "end_date": "2024-03-01"
+        }
+       }
+      ],
+      "id": "MV022_t1",
+      "dialogue_template": "correction"
+     },
+     "turn_id": "MV022_t1"
+    },
+    {
+     "utterance": "说错了，是日均价。",
+     "expect": "proceed",
+     "gold_question": "2024年3月1日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2024-03-01"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年3月1日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-03-02T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-03-01",
+        "end_date": "2024-03-01"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-03-01",
+         "end_date": "2024-03-01"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         227.741833
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-03-01",
+         "end_date": "2024-03-01"
+        }
+       }
+      ],
+      "id": "MV022_t2",
+      "dialogue_template": "correction"
+     },
+     "turn_id": "MV022_t2"
+    }
+   ],
+   "id": "MV022"
+  },
+  {
+   "template": "correction",
+   "kind": "correction",
+   "as_of": "2025-03-30T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年3月29日山东实时电价的日均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年3月29日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2025-03-29"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年3月29日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-03-30T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-03-29",
+        "end_date": "2025-03-29"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-03-29",
+         "end_date": "2025-03-29"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         241.167708
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-03-29",
+         "end_date": "2025-03-29"
+        }
+       }
+      ],
+      "id": "MV023_t1",
+      "dialogue_template": "correction"
+     },
+     "turn_id": "MV023_t1"
+    },
+    {
+     "utterance": "说错了，是最低价。",
+     "expect": "proceed",
+     "gold_question": "2025年3月29日山东实时电价的最低价是多少？",
+     "gold_periods": [
+      "2025-03-29"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年3月29日山东实时电价的最低价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-03-30T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-03-29",
+        "end_date": "2025-03-29"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-03-29",
+         "end_date": "2025-03-29"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "min",
+        "any_of": [
+         -99.75
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_min",
+        "type": "number",
+        "number": "min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-03-29",
+         "end_date": "2025-03-29"
+        }
+       }
+      ],
+      "id": "MV023_t2",
+      "dialogue_template": "correction"
+     },
+     "turn_id": "MV023_t2"
+    }
+   ],
+   "id": "MV023"
+  },
+  {
+   "template": "correction",
+   "kind": "correction",
+   "as_of": "2025-01-09T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年1月8日山东实时电价的最低价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年1月8日山东实时电价的最低价是多少？",
+     "gold_periods": [
+      "2025-01-08"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年1月8日山东实时电价的最低价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-01-09T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-01-08",
+        "end_date": "2025-01-08"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-01-08",
+         "end_date": "2025-01-08"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "min",
+        "any_of": [
+         -80.0
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_min",
+        "type": "number",
+        "number": "min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-01-08",
+         "end_date": "2025-01-08"
+        }
+       }
+      ],
+      "id": "MV024_t1",
+      "dialogue_template": "correction"
+     },
+     "turn_id": "MV024_t1"
+    },
+    {
+     "utterance": "不对，我想问的是日均价。",
+     "expect": "proceed",
+     "gold_question": "2025年1月8日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2025-01-08"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年1月8日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-01-09T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-01-08",
+        "end_date": "2025-01-08"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-01-08",
+         "end_date": "2025-01-08"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         174.825833
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-01-08",
+         "end_date": "2025-01-08"
+        }
+       }
+      ],
+      "id": "MV024_t2",
+      "dialogue_template": "correction"
+     },
+     "turn_id": "MV024_t2"
+    }
+   ],
+   "id": "MV024"
+  },
+  {
+   "template": "topic_switch",
+   "kind": "topic_switch",
+   "as_of": "2025-08-25T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年8月24日山东实时电价的最高价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年8月24日山东实时电价的最高价是多少？",
+     "gold_periods": [
+      "2025-08-24"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年8月24日山东实时电价的最高价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-25T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-08-24",
+        "end_date": "2025-08-24"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-08-24",
+         "end_date": "2025-08-24"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "max",
+        "any_of": [
+         473.51
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_max",
+        "type": "number",
+        "number": "max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-08-24",
+         "end_date": "2025-08-24"
+        }
+       }
+      ],
+      "id": "MV025_t1",
+      "dialogue_template": "topic_switch"
+     },
+     "turn_id": "MV025_t1"
+    },
+    {
+     "utterance": "2024年3月13日山东全网实际负荷的最小值是多少兆瓦？",
+     "expect": "proceed",
+     "gold_question": "2024年3月13日山东全网实际负荷的最小值是多少兆瓦？",
+     "gold_periods": [
+      "2024-03-13"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_load",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年3月13日山东全网实际负荷的最小值是多少兆瓦？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-25T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-03-13",
+        "end_date": "2024-03-13"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_load",
+         "query_stats"
+        ],
+        "cover": {
+         "start_date": "2024-03-13",
+         "end_date": "2024-03-13"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "load_actual_mw_min",
+        "any_of": [
+         52147.949219
+        ],
+        "tolerance": 0.5,
+        "relative": false,
+        "field": "load_actual_mw",
+        "keys": {
+         "date": "2024-03-13"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_load_actual_mw_min",
+        "type": "number",
+        "number": "load_actual_mw_min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_load",
+        "args": {
+         "start_date": "2024-03-13",
+         "end_date": "2024-03-13"
+        }
+       }
+      ],
+      "id": "MV025_t2",
+      "dialogue_template": "topic_switch"
+     },
+     "turn_id": "MV025_t2"
+    }
+   ],
+   "id": "MV025"
+  },
+  {
+   "template": "topic_switch",
+   "kind": "topic_switch",
+   "as_of": "2025-09-26T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年9月15日山东实时电价的最高价是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年9月15日山东实时电价的最高价是多少？",
+     "gold_periods": [
+      "2024-09-15"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年9月15日山东实时电价的最高价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-09-26T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-09-15",
+        "end_date": "2024-09-15"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-09-15",
+         "end_date": "2024-09-15"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "max",
+        "any_of": [
+         583.5
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_max",
+        "type": "number",
+        "number": "max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-09-15",
+         "end_date": "2024-09-15"
+        }
+       }
+      ],
+      "id": "MV026_t1",
+      "dialogue_template": "topic_switch"
+     },
+     "turn_id": "MV026_t1"
+    },
+    {
+     "utterance": "2025年9月25日山东全网实际负荷的最小值是多少兆瓦？",
+     "expect": "proceed",
+     "gold_question": "2025年9月25日山东全网实际负荷的最小值是多少兆瓦？",
+     "gold_periods": [
+      "2025-09-25"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_load",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年9月25日山东全网实际负荷的最小值是多少兆瓦？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-09-26T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-09-25",
+        "end_date": "2025-09-25"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_load",
+         "query_stats"
+        ],
+        "cover": {
+         "start_date": "2025-09-25",
+         "end_date": "2025-09-25"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "load_actual_mw_min",
+        "any_of": [
+         41625.004
+        ],
+        "tolerance": 0.5,
+        "relative": false,
+        "field": "load_actual_mw",
+        "keys": {
+         "date": "2025-09-25"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_load_actual_mw_min",
+        "type": "number",
+        "number": "load_actual_mw_min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_load",
+        "args": {
+         "start_date": "2025-09-25",
+         "end_date": "2025-09-25"
+        }
+       }
+      ],
+      "id": "MV026_t2",
+      "dialogue_template": "topic_switch"
+     },
+     "turn_id": "MV026_t2"
+    }
+   ],
+   "id": "MV026"
+  },
+  {
+   "template": "topic_switch",
+   "kind": "topic_switch",
+   "as_of": "2025-03-23T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年3月22日山东实时电价的最高价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年3月22日山东实时电价的最高价是多少？",
+     "gold_periods": [
+      "2025-03-22"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年3月22日山东实时电价的最高价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-03-23T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-03-22",
+        "end_date": "2025-03-22"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-03-22",
+         "end_date": "2025-03-22"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "max",
+        "any_of": [
+         459.88
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_max",
+        "type": "number",
+        "number": "max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-03-22",
+         "end_date": "2025-03-22"
+        }
+       }
+      ],
+      "id": "MV027_t1",
+      "dialogue_template": "topic_switch"
+     },
+     "turn_id": "MV027_t1"
+    },
+    {
+     "utterance": "2024年9月29日山东全网实际负荷的最小值是多少兆瓦？",
+     "expect": "proceed",
+     "gold_question": "2024年9月29日山东全网实际负荷的最小值是多少兆瓦？",
+     "gold_periods": [
+      "2024-09-29"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_load",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年9月29日山东全网实际负荷的最小值是多少兆瓦？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-03-23T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-09-29",
+        "end_date": "2024-09-29"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_load",
+         "query_stats"
+        ],
+        "cover": {
+         "start_date": "2024-09-29",
+         "end_date": "2024-09-29"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "load_actual_mw_min",
+        "any_of": [
+         51062.074
+        ],
+        "tolerance": 0.5,
+        "relative": false,
+        "field": "load_actual_mw",
+        "keys": {
+         "date": "2024-09-29"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_load_actual_mw_min",
+        "type": "number",
+        "number": "load_actual_mw_min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_load",
+        "args": {
+         "start_date": "2024-09-29",
+         "end_date": "2024-09-29"
+        }
+       }
+      ],
+      "id": "MV027_t2",
+      "dialogue_template": "topic_switch"
+     },
+     "turn_id": "MV027_t2"
+    }
+   ],
+   "id": "MV027"
+  },
+  {
+   "template": "topic_switch",
+   "kind": "topic_switch",
+   "as_of": "2025-09-16T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年3月20日山东实时电价的最高价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年3月20日山东实时电价的最高价是多少？",
+     "gold_periods": [
+      "2025-03-20"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年3月20日山东实时电价的最高价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-09-16T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-03-20",
+        "end_date": "2025-03-20"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-03-20",
+         "end_date": "2025-03-20"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "max",
+        "any_of": [
+         535.23
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_max",
+        "type": "number",
+        "number": "max"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-03-20",
+         "end_date": "2025-03-20"
+        }
+       }
+      ],
+      "id": "MV028_t1",
+      "dialogue_template": "topic_switch"
+     },
+     "turn_id": "MV028_t1"
+    },
+    {
+     "utterance": "2025年9月15日山东全网实际负荷的最小值是多少兆瓦？",
+     "expect": "proceed",
+     "gold_question": "2025年9月15日山东全网实际负荷的最小值是多少兆瓦？",
+     "gold_periods": [
+      "2025-09-15"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_load",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年9月15日山东全网实际负荷的最小值是多少兆瓦？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-09-16T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-09-15",
+        "end_date": "2025-09-15"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_load",
+         "query_stats"
+        ],
+        "cover": {
+         "start_date": "2025-09-15",
+         "end_date": "2025-09-15"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "load_actual_mw_min",
+        "any_of": [
+         60267.77
+        ],
+        "tolerance": 0.5,
+        "relative": false,
+        "field": "load_actual_mw",
+        "keys": {
+         "date": "2025-09-15"
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_load_actual_mw_min",
+        "type": "number",
+        "number": "load_actual_mw_min"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_load",
+        "args": {
+         "start_date": "2025-09-15",
+         "end_date": "2025-09-15"
+        }
+       }
+      ],
+      "id": "MV028_t2",
+      "dialogue_template": "topic_switch"
+     },
+     "turn_id": "MV028_t2"
+    }
+   ],
+   "id": "MV028"
+  },
+  {
+   "template": "ambiguous",
+   "kind": "clarify",
+   "as_of": "2025-09-06T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年8月24日和2025年9月5日，山东实时电价各有多少个负电价时段？",
+     "expect": "proceed",
+     "gold_question": "2025年8月24日和2025年9月5日，山东实时电价各有多少个负电价时段？",
+     "gold_periods": [
+      "2025-08-24",
+      "2025-09-05"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_two_days_negative",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年8月24日和2025年9月5日，山东实时电价各有多少个负电价时段？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-09-06T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-08-24",
+        "end_date": "2025-08-24"
+       },
+       {
+        "start_date": "2025-09-05",
+        "end_date": "2025-09-05"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price",
+         "detect_anomaly"
+        ],
+        "cover": {
+         "start_date": "2025-08-24",
+         "end_date": "2025-08-24"
+        }
+       },
+       {
+        "tools": [
+         "query_stats",
+         "query_price",
+         "detect_anomaly"
+        ],
+        "cover": {
+         "start_date": "2025-09-05",
+         "end_date": "2025-09-05"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "negative_a",
+        "any_of": [
+         0.0
+        ],
+        "tolerance": 0.5,
+        "relative": false
+       },
+       {
+        "name": "negative_b",
+        "any_of": [
+         0.0
+        ],
+        "tolerance": 0.5,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_negative_a",
+        "type": "number",
+        "number": "negative_a"
+       },
+       {
+        "id": "reports_negative_b",
+        "type": "number",
+        "number": "negative_b"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-08-24",
+         "end_date": "2025-08-24"
+        }
+       },
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-09-05",
+         "end_date": "2025-09-05"
+        }
+       }
+      ],
+      "id": "MV029_t1",
+      "dialogue_template": "ambiguous"
+     },
+     "turn_id": "MV029_t1"
+    },
+    {
+     "utterance": "当天全网负荷最大多少？",
+     "expect": "clarify",
+     "gold_question": "",
+     "gold_periods": [],
+     "inherits": true,
+     "case": null,
+     "turn_id": "MV029_t2"
+    }
+   ],
+   "id": "MV029"
+  },
+  {
+   "template": "ambiguous",
+   "kind": "clarify",
+   "as_of": "2024-01-22T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年1月15日和2024年1月21日，山东实时电价各有多少个负电价时段？",
+     "expect": "proceed",
+     "gold_question": "2024年1月15日和2024年1月21日，山东实时电价各有多少个负电价时段？",
+     "gold_periods": [
+      "2024-01-15",
+      "2024-01-21"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_two_days_negative",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年1月15日和2024年1月21日，山东实时电价各有多少个负电价时段？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-01-22T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-01-15",
+        "end_date": "2024-01-15"
+       },
+       {
+        "start_date": "2024-01-21",
+        "end_date": "2024-01-21"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price",
+         "detect_anomaly"
+        ],
+        "cover": {
+         "start_date": "2024-01-15",
+         "end_date": "2024-01-15"
+        }
+       },
+       {
+        "tools": [
+         "query_stats",
+         "query_price",
+         "detect_anomaly"
+        ],
+        "cover": {
+         "start_date": "2024-01-21",
+         "end_date": "2024-01-21"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "negative_a",
+        "any_of": [
+         1.0
+        ],
+        "tolerance": 0.5,
+        "relative": false
+       },
+       {
+        "name": "negative_b",
+        "any_of": [
+         32.0
+        ],
+        "tolerance": 0.5,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_negative_a",
+        "type": "number",
+        "number": "negative_a"
+       },
+       {
+        "id": "reports_negative_b",
+        "type": "number",
+        "number": "negative_b"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-01-15",
+         "end_date": "2024-01-15"
+        }
+       },
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-01-21",
+         "end_date": "2024-01-21"
+        }
+       }
+      ],
+      "id": "MV030_t1",
+      "dialogue_template": "ambiguous"
+     },
+     "turn_id": "MV030_t1"
+    },
+    {
+     "utterance": "当天全网负荷最大多少？",
+     "expect": "clarify",
+     "gold_question": "",
+     "gold_periods": [],
+     "inherits": true,
+     "case": null,
+     "turn_id": "MV030_t2"
+    }
+   ],
+   "id": "MV030"
+  },
+  {
+   "template": "ambiguous",
+   "kind": "clarify",
+   "as_of": "2025-02-14T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年7月2日和2025年2月13日，山东实时电价各有多少个负电价时段？",
+     "expect": "proceed",
+     "gold_question": "2024年7月2日和2025年2月13日，山东实时电价各有多少个负电价时段？",
+     "gold_periods": [
+      "2024-07-02",
+      "2025-02-13"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_two_days_negative",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年7月2日和2025年2月13日，山东实时电价各有多少个负电价时段？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-02-14T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-07-02",
+        "end_date": "2024-07-02"
+       },
+       {
+        "start_date": "2025-02-13",
+        "end_date": "2025-02-13"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price",
+         "detect_anomaly"
+        ],
+        "cover": {
+         "start_date": "2024-07-02",
+         "end_date": "2024-07-02"
+        }
+       },
+       {
+        "tools": [
+         "query_stats",
+         "query_price",
+         "detect_anomaly"
+        ],
+        "cover": {
+         "start_date": "2025-02-13",
+         "end_date": "2025-02-13"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "negative_a",
+        "any_of": [
+         42.0
+        ],
+        "tolerance": 0.5,
+        "relative": false
+       },
+       {
+        "name": "negative_b",
+        "any_of": [
+         36.0
+        ],
+        "tolerance": 0.5,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_negative_a",
+        "type": "number",
+        "number": "negative_a"
+       },
+       {
+        "id": "reports_negative_b",
+        "type": "number",
+        "number": "negative_b"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-07-02",
+         "end_date": "2024-07-02"
+        }
+       },
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-02-13",
+         "end_date": "2025-02-13"
+        }
+       }
+      ],
+      "id": "MV031_t1",
+      "dialogue_template": "ambiguous"
+     },
+     "turn_id": "MV031_t1"
+    },
+    {
+     "utterance": "那天的最高价是多少？",
+     "expect": "clarify",
+     "gold_question": "",
+     "gold_periods": [],
+     "inherits": true,
+     "case": null,
+     "turn_id": "MV031_t2"
+    }
+   ],
+   "id": "MV031"
+  },
+  {
+   "template": "ambiguous",
+   "kind": "clarify",
+   "as_of": "2024-08-17T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年8月12日和2024年8月16日，山东实时电价各有多少个负电价时段？",
+     "expect": "proceed",
+     "gold_question": "2024年8月12日和2024年8月16日，山东实时电价各有多少个负电价时段？",
+     "gold_periods": [
+      "2024-08-12",
+      "2024-08-16"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_two_days_negative",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年8月12日和2024年8月16日，山东实时电价各有多少个负电价时段？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-08-17T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-08-12",
+        "end_date": "2024-08-12"
+       },
+       {
+        "start_date": "2024-08-16",
+        "end_date": "2024-08-16"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price",
+         "detect_anomaly"
+        ],
+        "cover": {
+         "start_date": "2024-08-12",
+         "end_date": "2024-08-12"
+        }
+       },
+       {
+        "tools": [
+         "query_stats",
+         "query_price",
+         "detect_anomaly"
+        ],
+        "cover": {
+         "start_date": "2024-08-16",
+         "end_date": "2024-08-16"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "negative_a",
+        "any_of": [
+         0.0
+        ],
+        "tolerance": 0.5,
+        "relative": false
+       },
+       {
+        "name": "negative_b",
+        "any_of": [
+         0.0
+        ],
+        "tolerance": 0.5,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_negative_a",
+        "type": "number",
+        "number": "negative_a"
+       },
+       {
+        "id": "reports_negative_b",
+        "type": "number",
+        "number": "negative_b"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-08-12",
+         "end_date": "2024-08-12"
+        }
+       },
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-08-16",
+         "end_date": "2024-08-16"
+        }
+       }
+      ],
+      "id": "MV032_t1",
+      "dialogue_template": "ambiguous"
+     },
+     "turn_id": "MV032_t1"
+    },
+    {
+     "utterance": "当天全网负荷最大多少？",
+     "expect": "clarify",
+     "gold_question": "",
+     "gold_periods": [],
+     "inherits": true,
+     "case": null,
+     "turn_id": "MV032_t2"
+    }
+   ],
+   "id": "MV032"
+  },
+  {
+   "template": "cross_turn_compare",
+   "kind": "compare",
+   "as_of": "2025-08-05T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年8月4日山东实时电价的日均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年8月4日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2025-08-04"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年8月4日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-05T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-08-04",
+        "end_date": "2025-08-04"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-08-04",
+         "end_date": "2025-08-04"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         385.94375
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-08-04",
+         "end_date": "2025-08-04"
+        }
+       }
+      ],
+      "id": "MV033_t1",
+      "dialogue_template": "cross_turn_compare"
+     },
+     "turn_id": "MV033_t1"
+    },
+    {
+     "utterance": "那7月31日呢？",
+     "expect": "proceed",
+     "gold_question": "2025年7月31日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2025-07-31"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年7月31日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-05T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-07-31",
+        "end_date": "2025-07-31"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-07-31",
+         "end_date": "2025-07-31"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         375.90875
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-07-31",
+         "end_date": "2025-07-31"
+        }
+       }
+      ],
+      "id": "MV033_t2",
+      "dialogue_template": "cross_turn_compare"
+     },
+     "turn_id": "MV033_t2"
+    },
+    {
+     "utterance": "两天比一下，哪天贵，差多少？",
+     "expect": "proceed",
+     "gold_question": "2025年8月4日和2025年7月31日，山东实时电价日均价哪天更高？高多少？",
+     "gold_periods": [
+      "2025-07-31",
+      "2025-08-04"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_compare",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年8月4日和2025年7月31日，山东实时电价日均价哪天更高？高多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-05T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-08-04",
+        "end_date": "2025-08-04"
+       },
+       {
+        "start_date": "2025-07-31",
+        "end_date": "2025-07-31"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-08-04",
+         "end_date": "2025-08-04"
+        }
+       },
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-07-31",
+         "end_date": "2025-07-31"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean_a",
+        "any_of": [
+         385.94375
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       },
+       {
+        "name": "mean_b",
+        "any_of": [
+         375.90875
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       },
+       {
+        "name": "difference",
+        "any_of": [
+         10.035,
+         -10.035
+        ],
+        "tolerance": 0.02,
+        "relative": false,
+        "evidence": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "mentions_2025-08-04",
+        "type": "text_contains_any",
+        "values": [
+         "2025-08-04",
+         "8月4日"
+        ]
+       },
+       {
+        "id": "reports_mean_a",
+        "type": "number",
+        "number": "mean_a"
+       },
+       {
+        "id": "reports_mean_b",
+        "type": "number",
+        "number": "mean_b"
+       },
+       {
+        "id": "reports_difference",
+        "type": "number",
+        "number": "difference"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-08-04",
+         "end_date": "2025-08-04"
+        }
+       },
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-07-31",
+         "end_date": "2025-07-31"
+        }
+       }
+      ],
+      "id": "MV033_t3",
+      "dialogue_template": "cross_turn_compare"
+     },
+     "turn_id": "MV033_t3"
+    }
+   ],
+   "id": "MV033"
+  },
+  {
+   "template": "cross_turn_compare",
+   "kind": "compare",
+   "as_of": "2024-03-29T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年1月20日山东实时电价的日均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年1月20日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2024-01-20"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年1月20日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-03-29T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-01-20",
+        "end_date": "2024-01-20"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-01-20",
+         "end_date": "2024-01-20"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         266.019479
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-01-20",
+         "end_date": "2024-01-20"
+        }
+       }
+      ],
+      "id": "MV034_t1",
+      "dialogue_template": "cross_turn_compare"
+     },
+     "turn_id": "MV034_t1"
+    },
+    {
+     "utterance": "那3月28日呢？",
+     "expect": "proceed",
+     "gold_question": "2024年3月28日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2024-03-28"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年3月28日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-03-29T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-03-28",
+        "end_date": "2024-03-28"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-03-28",
+         "end_date": "2024-03-28"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         296.560083
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-03-28",
+         "end_date": "2024-03-28"
+        }
+       }
+      ],
+      "id": "MV034_t2",
+      "dialogue_template": "cross_turn_compare"
+     },
+     "turn_id": "MV034_t2"
+    },
+    {
+     "utterance": "两天比一下，哪天贵，差多少？",
+     "expect": "proceed",
+     "gold_question": "2024年1月20日和2024年3月28日，山东实时电价日均价哪天更高？高多少？",
+     "gold_periods": [
+      "2024-01-20",
+      "2024-03-28"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_compare",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年1月20日和2024年3月28日，山东实时电价日均价哪天更高？高多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-03-29T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-01-20",
+        "end_date": "2024-01-20"
+       },
+       {
+        "start_date": "2024-03-28",
+        "end_date": "2024-03-28"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-01-20",
+         "end_date": "2024-01-20"
+        }
+       },
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-03-28",
+         "end_date": "2024-03-28"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean_a",
+        "any_of": [
+         266.019479
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       },
+       {
+        "name": "mean_b",
+        "any_of": [
+         296.560083
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       },
+       {
+        "name": "difference",
+        "any_of": [
+         -30.540604,
+         30.540604
+        ],
+        "tolerance": 0.02,
+        "relative": false,
+        "evidence": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "mentions_2024-03-28",
+        "type": "text_contains_any",
+        "values": [
+         "2024-03-28",
+         "3月28日"
+        ]
+       },
+       {
+        "id": "reports_mean_a",
+        "type": "number",
+        "number": "mean_a"
+       },
+       {
+        "id": "reports_mean_b",
+        "type": "number",
+        "number": "mean_b"
+       },
+       {
+        "id": "reports_difference",
+        "type": "number",
+        "number": "difference"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-01-20",
+         "end_date": "2024-01-20"
+        }
+       },
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2024-03-28",
+         "end_date": "2024-03-28"
+        }
+       }
+      ],
+      "id": "MV034_t3",
+      "dialogue_template": "cross_turn_compare"
+     },
+     "turn_id": "MV034_t3"
+    }
+   ],
+   "id": "MV034"
+  },
+  {
+   "template": "cross_turn_compare",
+   "kind": "compare",
+   "as_of": "2025-09-02T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年9月1日山东实时电价的日均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年9月1日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2025-09-01"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年9月1日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-09-02T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-09-01",
+        "end_date": "2025-09-01"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-09-01",
+         "end_date": "2025-09-01"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         245.055833
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-09-01",
+         "end_date": "2025-09-01"
+        }
+       }
+      ],
+      "id": "MV035_t1",
+      "dialogue_template": "cross_turn_compare"
+     },
+     "turn_id": "MV035_t1"
+    },
+    {
+     "utterance": "那3月27日呢？",
+     "expect": "proceed",
+     "gold_question": "2025年3月27日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2025-03-27"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年3月27日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-09-02T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-03-27",
+        "end_date": "2025-03-27"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-03-27",
+         "end_date": "2025-03-27"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         333.935
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-03-27",
+         "end_date": "2025-03-27"
+        }
+       }
+      ],
+      "id": "MV035_t2",
+      "dialogue_template": "cross_turn_compare"
+     },
+     "turn_id": "MV035_t2"
+    },
+    {
+     "utterance": "这两天哪天均价更高？高多少？",
+     "expect": "proceed",
+     "gold_question": "2025年9月1日和2025年3月27日，山东实时电价日均价哪天更高？高多少？",
+     "gold_periods": [
+      "2025-03-27",
+      "2025-09-01"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_compare",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年9月1日和2025年3月27日，山东实时电价日均价哪天更高？高多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-09-02T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-09-01",
+        "end_date": "2025-09-01"
+       },
+       {
+        "start_date": "2025-03-27",
+        "end_date": "2025-03-27"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-09-01",
+         "end_date": "2025-09-01"
+        }
+       },
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-03-27",
+         "end_date": "2025-03-27"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean_a",
+        "any_of": [
+         245.055833
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       },
+       {
+        "name": "mean_b",
+        "any_of": [
+         333.935
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       },
+       {
+        "name": "difference",
+        "any_of": [
+         -88.879167,
+         88.879167
+        ],
+        "tolerance": 0.02,
+        "relative": false,
+        "evidence": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "mentions_2025-03-27",
+        "type": "text_contains_any",
+        "values": [
+         "2025-03-27",
+         "3月27日"
+        ]
+       },
+       {
+        "id": "reports_mean_a",
+        "type": "number",
+        "number": "mean_a"
+       },
+       {
+        "id": "reports_mean_b",
+        "type": "number",
+        "number": "mean_b"
+       },
+       {
+        "id": "reports_difference",
+        "type": "number",
+        "number": "difference"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-09-01",
+         "end_date": "2025-09-01"
+        }
+       },
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-03-27",
+         "end_date": "2025-03-27"
+        }
+       }
+      ],
+      "id": "MV035_t3",
+      "dialogue_template": "cross_turn_compare"
+     },
+     "turn_id": "MV035_t3"
+    }
+   ],
+   "id": "MV035"
+  },
+  {
+   "template": "cross_turn_compare",
+   "kind": "compare",
+   "as_of": "2025-08-29T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年7月16日山东实时电价的日均价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年7月16日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2025-07-16"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年7月16日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-29T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-07-16",
+        "end_date": "2025-07-16"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-07-16",
+         "end_date": "2025-07-16"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         295.859271
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-07-16",
+         "end_date": "2025-07-16"
+        }
+       }
+      ],
+      "id": "MV036_t1",
+      "dialogue_template": "cross_turn_compare"
+     },
+     "turn_id": "MV036_t1"
+    },
+    {
+     "utterance": "那8月28日呢？",
+     "expect": "proceed",
+     "gold_question": "2025年8月28日山东实时电价的日均价是多少？",
+     "gold_periods": [
+      "2025-08-28"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_stat",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年8月28日山东实时电价的日均价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-29T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-08-28",
+        "end_date": "2025-08-28"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-08-28",
+         "end_date": "2025-08-28"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean",
+        "any_of": [
+         374.01875
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_mean",
+        "type": "number",
+        "number": "mean"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-08-28",
+         "end_date": "2025-08-28"
+        }
+       }
+      ],
+      "id": "MV036_t2",
+      "dialogue_template": "cross_turn_compare"
+     },
+     "turn_id": "MV036_t2"
+    },
+    {
+     "utterance": "两天比一下，哪天贵，差多少？",
+     "expect": "proceed",
+     "gold_question": "2025年7月16日和2025年8月28日，山东实时电价日均价哪天更高？高多少？",
+     "gold_periods": [
+      "2025-07-16",
+      "2025-08-28"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_compare",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年7月16日和2025年8月28日，山东实时电价日均价哪天更高？高多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-29T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-07-16",
+        "end_date": "2025-07-16"
+       },
+       {
+        "start_date": "2025-08-28",
+        "end_date": "2025-08-28"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-07-16",
+         "end_date": "2025-07-16"
+        }
+       },
+       {
+        "tools": [
+         "query_stats",
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-08-28",
+         "end_date": "2025-08-28"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "mean_a",
+        "any_of": [
+         295.859271
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       },
+       {
+        "name": "mean_b",
+        "any_of": [
+         374.01875
+        ],
+        "tolerance": 0.01,
+        "relative": false
+       },
+       {
+        "name": "difference",
+        "any_of": [
+         -78.159479,
+         78.159479
+        ],
+        "tolerance": 0.02,
+        "relative": false,
+        "evidence": false
+       }
+      ],
+      "key_points": [
+       {
+        "id": "mentions_2025-08-28",
+        "type": "text_contains_any",
+        "values": [
+         "2025-08-28",
+         "8月28日"
+        ]
+       },
+       {
+        "id": "reports_mean_a",
+        "type": "number",
+        "number": "mean_a"
+       },
+       {
+        "id": "reports_mean_b",
+        "type": "number",
+        "number": "mean_b"
+       },
+       {
+        "id": "reports_difference",
+        "type": "number",
+        "number": "difference"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-07-16",
+         "end_date": "2025-07-16"
+        }
+       },
+       {
+        "tool": "query_stats",
+        "args": {
+         "start_date": "2025-08-28",
+         "end_date": "2025-08-28"
+        }
+       }
+      ],
+      "id": "MV036_t3",
+      "dialogue_template": "cross_turn_compare"
+     },
+     "turn_id": "MV036_t3"
+    }
+   ],
+   "id": "MV036"
+  },
+  {
+   "template": "same_slot_prev_day",
+   "kind": "omission",
+   "as_of": "2024-03-05T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2024年3月4日时段标签为 23:30（即 23:15 到 23:30）的那一刻钟，山东实时电价是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年3月4日时段标签为 23:30（即 23:15 到 23:30）的那一刻钟，山东实时电价是多少？",
+     "gold_periods": [
+      "2024-03-04"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_slot",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年3月4日时段标签为 23:30（即 23:15 到 23:30）的那一刻钟，山东实时电价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-03-05T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-03-04",
+        "end_date": "2024-03-04"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-03-04",
+         "end_date": "2024-03-04"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "price",
+        "any_of": [
+         276.12
+        ],
+        "tolerance": 0.01,
+        "relative": false,
+        "field": "rt_price",
+        "keys": {
+         "date": "2024-03-04",
+         "slot": 93
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_price",
+        "type": "number",
+        "number": "price"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_price",
+        "args": {
+         "start_date": "2024-03-04",
+         "end_date": "2024-03-04",
+         "slot_id": 93
+        }
+       }
+      ],
+      "id": "MV037_t1",
+      "dialogue_template": "same_slot_prev_day"
+     },
+     "turn_id": "MV037_t1"
+    },
+    {
+     "utterance": "那前一天这个时段是多少？",
+     "expect": "proceed",
+     "gold_question": "2024年3月3日时段标签为 23:30（即 23:15 到 23:30）的那一刻钟，山东实时电价是多少？",
+     "gold_periods": [
+      "2024-03-03"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_slot",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2024年3月3日时段标签为 23:30（即 23:15 到 23:30）的那一刻钟，山东实时电价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2024-03-05T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2024-03-03",
+        "end_date": "2024-03-03"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2024-03-03",
+         "end_date": "2024-03-03"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "price",
+        "any_of": [
+         362.78
+        ],
+        "tolerance": 0.01,
+        "relative": false,
+        "field": "rt_price",
+        "keys": {
+         "date": "2024-03-03",
+         "slot": 93
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_price",
+        "type": "number",
+        "number": "price"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_price",
+        "args": {
+         "start_date": "2024-03-03",
+         "end_date": "2024-03-03",
+         "slot_id": 93
+        }
+       }
+      ],
+      "id": "MV037_t2",
+      "dialogue_template": "same_slot_prev_day"
+     },
+     "turn_id": "MV037_t2"
+    }
+   ],
+   "id": "MV037"
+  },
+  {
+   "template": "same_slot_prev_day",
+   "kind": "omission",
+   "as_of": "2025-02-23T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年2月22日时段标签为 05:00（即 04:45 到 05:00）的那一刻钟，山东实时电价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年2月22日时段标签为 05:00（即 04:45 到 05:00）的那一刻钟，山东实时电价是多少？",
+     "gold_periods": [
+      "2025-02-22"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_slot",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年2月22日时段标签为 05:00（即 04:45 到 05:00）的那一刻钟，山东实时电价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-02-23T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-02-22",
+        "end_date": "2025-02-22"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-02-22",
+         "end_date": "2025-02-22"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "price",
+        "any_of": [
+         287.59
+        ],
+        "tolerance": 0.01,
+        "relative": false,
+        "field": "rt_price",
+        "keys": {
+         "date": "2025-02-22",
+         "slot": 19
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_price",
+        "type": "number",
+        "number": "price"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_price",
+        "args": {
+         "start_date": "2025-02-22",
+         "end_date": "2025-02-22",
+         "slot_id": 19
+        }
+       }
+      ],
+      "id": "MV038_t1",
+      "dialogue_template": "same_slot_prev_day"
+     },
+     "turn_id": "MV038_t1"
+    },
+    {
+     "utterance": "那前一天这个时段是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年2月21日时段标签为 05:00（即 04:45 到 05:00）的那一刻钟，山东实时电价是多少？",
+     "gold_periods": [
+      "2025-02-21"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_slot",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年2月21日时段标签为 05:00（即 04:45 到 05:00）的那一刻钟，山东实时电价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-02-23T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-02-21",
+        "end_date": "2025-02-21"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-02-21",
+         "end_date": "2025-02-21"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "price",
+        "any_of": [
+         294.76
+        ],
+        "tolerance": 0.01,
+        "relative": false,
+        "field": "rt_price",
+        "keys": {
+         "date": "2025-02-21",
+         "slot": 19
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_price",
+        "type": "number",
+        "number": "price"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_price",
+        "args": {
+         "start_date": "2025-02-21",
+         "end_date": "2025-02-21",
+         "slot_id": 19
+        }
+       }
+      ],
+      "id": "MV038_t2",
+      "dialogue_template": "same_slot_prev_day"
+     },
+     "turn_id": "MV038_t2"
+    }
+   ],
+   "id": "MV038"
+  },
+  {
+   "template": "same_slot_prev_day",
+   "kind": "omission",
+   "as_of": "2025-08-07T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年8月6日时段标签为 03:45（即 03:30 到 03:45）的那一刻钟，山东实时电价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年8月6日时段标签为 03:45（即 03:30 到 03:45）的那一刻钟，山东实时电价是多少？",
+     "gold_periods": [
+      "2025-08-06"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_slot",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年8月6日时段标签为 03:45（即 03:30 到 03:45）的那一刻钟，山东实时电价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-07T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-08-06",
+        "end_date": "2025-08-06"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-08-06",
+         "end_date": "2025-08-06"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "price",
+        "any_of": [
+         351.18
+        ],
+        "tolerance": 0.01,
+        "relative": false,
+        "field": "rt_price",
+        "keys": {
+         "date": "2025-08-06",
+         "slot": 14
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_price",
+        "type": "number",
+        "number": "price"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_price",
+        "args": {
+         "start_date": "2025-08-06",
+         "end_date": "2025-08-06",
+         "slot_id": 14
+        }
+       }
+      ],
+      "id": "MV039_t1",
+      "dialogue_template": "same_slot_prev_day"
+     },
+     "turn_id": "MV039_t1"
+    },
+    {
+     "utterance": "那前一天这个时段是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年8月5日时段标签为 03:45（即 03:30 到 03:45）的那一刻钟，山东实时电价是多少？",
+     "gold_periods": [
+      "2025-08-05"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_slot",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年8月5日时段标签为 03:45（即 03:30 到 03:45）的那一刻钟，山东实时电价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-08-07T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-08-05",
+        "end_date": "2025-08-05"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-08-05",
+         "end_date": "2025-08-05"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "price",
+        "any_of": [
+         408.19
+        ],
+        "tolerance": 0.01,
+        "relative": false,
+        "field": "rt_price",
+        "keys": {
+         "date": "2025-08-05",
+         "slot": 14
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_price",
+        "type": "number",
+        "number": "price"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_price",
+        "args": {
+         "start_date": "2025-08-05",
+         "end_date": "2025-08-05",
+         "slot_id": 14
+        }
+       }
+      ],
+      "id": "MV039_t2",
+      "dialogue_template": "same_slot_prev_day"
+     },
+     "turn_id": "MV039_t2"
+    }
+   ],
+   "id": "MV039"
+  },
+  {
+   "template": "same_slot_prev_day",
+   "kind": "omission",
+   "as_of": "2025-01-26T09:00:00+08:00",
+   "turns": [
+    {
+     "utterance": "2025年1月25日时段标签为 21:30（即 21:15 到 21:30）的那一刻钟，山东实时电价是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年1月25日时段标签为 21:30（即 21:15 到 21:30）的那一刻钟，山东实时电价是多少？",
+     "gold_periods": [
+      "2025-01-25"
+     ],
+     "inherits": false,
+     "case": {
+      "template": "m_slot",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年1月25日时段标签为 21:30（即 21:15 到 21:30）的那一刻钟，山东实时电价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-01-26T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-01-25",
+        "end_date": "2025-01-25"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-01-25",
+         "end_date": "2025-01-25"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "price",
+        "any_of": [
+         385.0
+        ],
+        "tolerance": 0.01,
+        "relative": false,
+        "field": "rt_price",
+        "keys": {
+         "date": "2025-01-25",
+         "slot": 85
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_price",
+        "type": "number",
+        "number": "price"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_price",
+        "args": {
+         "start_date": "2025-01-25",
+         "end_date": "2025-01-25",
+         "slot_id": 85
+        }
+       }
+      ],
+      "id": "MV040_t1",
+      "dialogue_template": "same_slot_prev_day"
+     },
+     "turn_id": "MV040_t1"
+    },
+    {
+     "utterance": "那前一天这个时段是多少？",
+     "expect": "proceed",
+     "gold_question": "2025年1月24日时段标签为 21:30（即 21:15 到 21:30）的那一刻钟，山东实时电价是多少？",
+     "gold_periods": [
+      "2025-01-24"
+     ],
+     "inherits": true,
+     "case": {
+      "template": "m_slot",
+      "stratum": "M",
+      "category": "M",
+      "answerability": "A",
+      "question": "2025年1月24日时段标签为 21:30（即 21:15 到 21:30）的那一刻钟，山东实时电价是多少？",
+      "phrasing": 0,
+      "mode": "historical_analysis",
+      "as_of": "2025-01-26T09:00:00+08:00",
+      "allowed_tools": [
+       "query_price",
+       "query_stats",
+       "query_load",
+       "query_weather",
+       "detect_anomaly",
+       "explain_drivers"
+      ],
+      "arg_windows": [
+       {
+        "start_date": "2025-01-24",
+        "end_date": "2025-01-24"
+       }
+      ],
+      "required_calls": [
+       {
+        "tools": [
+         "query_price"
+        ],
+        "cover": {
+         "start_date": "2025-01-24",
+         "end_date": "2025-01-24"
+        }
+       }
+      ],
+      "required_numbers": [
+       {
+        "name": "price",
+        "any_of": [
+         339.37
+        ],
+        "tolerance": 0.01,
+        "relative": false,
+        "field": "rt_price",
+        "keys": {
+         "date": "2025-01-24",
+         "slot": 85
+        }
+       }
+      ],
+      "key_points": [
+       {
+        "id": "reports_price",
+        "type": "number",
+        "number": "price"
+       }
+      ],
+      "needs_policy": false,
+      "required_policy": [],
+      "task_case": true,
+      "reference_solution": [
+       {
+        "tool": "query_price",
+        "args": {
+         "start_date": "2025-01-24",
+         "end_date": "2025-01-24",
+         "slot_id": 85
+        }
+       }
+      ],
+      "id": "MV040_t2",
+      "dialogue_template": "same_slot_prev_day"
+     },
+     "turn_id": "MV040_t2"
+    }
+   ],
+   "id": "MV040"
+  }
+ ]
+}

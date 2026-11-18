@@ -4,6 +4,7 @@
 
 - 数据：山东 15 分钟实时市场数据 71,520 个时段（2024-01-01 — 2026-01-14），济南逐时气象 17,904 点，17 份政策附件。
 - 只做历史分析和历史时点的 D+1 预测，不执行交易。
+- 支持多轮追问（"那前一天呢？""这两天哪天贵？"）：先把追问改写成完整问题并复述给用户，有歧义就反问；回答按复杂度分档，数字带可点开的出处，需要时把整段对话合成一份报告。
 
 ## 架构
 
@@ -32,6 +33,24 @@ LangGraph 实现，提供四种配置用于对照实验：
 | E2 | 规划 + 执行 + 反思 + 重规划（完整系统） |
 | E3 | E2 去掉政策生效区间过滤（消融） |
 
+### 多轮对话层（`ellectric/conversation/`）
+
+单轮 Agent 外面套一层，Agent 本身不改：
+
+```
+用户这一轮 ─▶ 要报告？─是─▶ 合并会话报告（按主题组织，每个来源只列一次）
+                │否
+                ▼
+         改写（第一轮跳过）─▶ 有多个候选？─是─▶ 反问
+                │ 独立问题，复述"我理解为……"
+                ▼
+         单轮 Agent ＋ 会话内工具结果缓存（同 as_of、同参数直接复用）
+                ▼
+         分档展示：查数 → 一两句话＋出处标记；分析 → 结论＋可展开的成因与政策依据
+```
+
+改写结果里的每个日期都由代码核对：必须来自用户原话、上文，或者是声明过的推算（"前一天""去年同期"，由代码自己按基准加偏移算）。不满足的退回模型重写，仍不满足就请用户把日期说完整。设计与评测见 [`docs/多轮对话方案.md`](docs/多轮对话方案.md)。
+
 ### 工具（`ellectric/service/market_tools.py`）
 
 | 工具 | 作用 |
@@ -58,6 +77,8 @@ LangGraph 实现，提供四种配置用于对照实验：
 - 工具故障后的恢复：E2 66.7% vs 无反思的 E1 34.0%，差值 +32.7pp（95% CI +21.3～+44.0）。
 - 不可答问题正确拒答 30/30，部分可答 36/36，零误答、零误拒；取错行 0 次。
 - 政策检索：Recall@5 95.7%、MRR 0.935；三模型点预测 MAE 比最好的基线低 34.8%。
+
+多轮对话（冻结后用新种子生成 80 段对话、168 轮，只跑一次）：追问轮通过 95.5%（84/88），改写正确 100%，直接问标准独立问题的上限 97.5%；该反问时反问 7/8，没有多余反问。同一份冻结代码上的单轮回归 test_v4（E2，1 次）为 78.9%（95% CI 73.3%–83.6%），与 test_v3 区间重叠。
 
 - 项目概览、改进历程和可引用的数字：[`docs/市场Agent改进与进度记录.md`](docs/市场Agent改进与进度记录.md)（建议先读）
 - 评测设计：[`docs/评测方案v2.md`](docs/评测方案v2.md)
@@ -92,7 +113,13 @@ python -m ellectric.scripts.build_policy_index         # BM25 + 向量索引
 uvicorn ellectric.api.server:app --host 0.0.0.0 --port 8000
 ```
 
-打开 `http://localhost:8000` 使用网页（`ellectric/web`，构建产物已在 `ellectric/api/static`）。接口：`POST /analyze`、`POST /analyze/stream`（SSE）、`GET /trace/{id}`、`GET /trace/{id}/report.md`、`POST /market-tools/{name}`。
+打开 `http://localhost:8000` 使用网页（`ellectric/web`，构建产物已在 `ellectric/api/static`），默认是多轮对话页，另有单次分析页。
+
+接口：
+
+- 多轮：`POST /conversations`、`POST /conversations/{id}/turns`（SSE）、`GET /conversations/{id}`、`GET /conversations/{id}/report.md`
+- 单轮：`POST /analyze`、`POST /analyze/stream`（SSE）、`GET /trace/{id}`、`GET /trace/{id}/report.md`
+- 工具：`POST /market-tools/{name}`
 
 Docker：
 
@@ -107,6 +134,16 @@ docker compose -f docker-compose.market.yml up -d --build
 python -m pytest ellectric/tests
 python -m ellectric.eval.market.run_eval --set test_v3 --variants E0 E2 --runs 3 --out ellectric/eval/market/results/test_v3
 python -m ellectric.eval.market.score_v2 --set test_v3 --results ellectric/eval/market/results/test_v3 --pairs E0:E2
+
+# 多轮：对话题集、实跑、上限（直接问标准独立问题）、判分
+python -m ellectric.eval.market.build_dialogues --split dev --seed 1101
+python -m ellectric.eval.market.run_dialogues --set multiturn_dev_v1 --retry-network-errors
+python -m ellectric.eval.market.run_dialogues --set multiturn_dev_v1 --oracle
+python -m ellectric.eval.market.score_dialogues --set multiturn_dev_v1
+
+# 冻结与核对（生成 test 集之前冻结；核对不一致就需要新的 test 集）
+python -m ellectric.eval.market.freeze freeze --name test_v4 --purpose "..."
+python -m ellectric.eval.market.freeze check --name test_v4
 ```
 
 ## 目录
@@ -115,6 +152,7 @@ python -m ellectric.eval.market.score_v2 --set test_v3 --results ellectric/eval/
 ellectric/
   api/          FastAPI 服务与前端构建产物
   llm/          智能体（market_analysis.py）与报告 Markdown 导出
+  conversation/ 多轮层：会话存储、改写与反问、证据缓存、分档展示与出处、会话合并报告
   service/      8 个市场工具（market_tools.py）、分析运行与 trace 存储（analysis.py）
   pipeline/     数据标准化、特征、三模型训练与推理（pipeline/market）
   policy/       政策清单、解析、混合检索
@@ -123,14 +161,16 @@ ellectric/
   tests/        单元测试
   web/          React 前端源码
 docker/         市场服务 Dockerfile
-docs/           改进与进度概览、开发过程详细记录、评测方案、政策元数据核对表
+docs/           改进与进度概览、开发过程详细记录、评测方案、多轮对话方案、政策元数据核对表
 ```
 
 ## 已知限制
 
 - 超出 token 预算或报告输出被截断时，整次运行报错退出，已取到的证据不会写成报告（test_v3 中 13 次运行因此计为失败）。
 - 政策对比类问题较弱（test_v3 上 E2 3/15）。
-- 题目由模板生成，句式比真实用户提问单一。
+- 多轮：模型只列出一个候选时，不会触发反问（测试集 8 次中漏了 1 次）。
+- 题目由模板生成，句式比真实用户提问单一；多轮题集同样是模板生成，只覆盖日期、时段和指标的继承，不覆盖开放式的话题延续。
+- 多轮改写只核对日期和月份；指标、地区等继承靠复述让用户发现和纠正。
 
 ## 许可
 

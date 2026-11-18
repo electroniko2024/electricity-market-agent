@@ -1,9 +1,11 @@
 import { useRef, useState } from "react";
 import { streamAnalysis } from "./api";
 import { AnalysisReport } from "./AnalysisReport";
+import { Conversation } from "./Conversation";
 import "./styles.css";
 
 export default function App() {
+  const [view, setView] = useState<"chat" | "single">("chat");
   const [analysisQuestion, setAnalysisQuestion] = useState("");
   const [analysisAsOf, setAnalysisAsOf] = useState("2026-01-15T00:00");
   const [analysisMode, setAnalysisMode] = useState<"historical_analysis" | "historical_forecast">("historical_analysis");
@@ -46,8 +48,14 @@ export default function App() {
         </div>
       </header>
 
+      <nav className="view-tabs" aria-label="页面">
+        <button type="button" className={view === "chat" ? "active" : ""} onClick={() => setView("chat")}>多轮对话</button>
+        <button type="button" className={view === "single" ? "active" : ""} onClick={() => setView("single")}>单次分析（完整报告）</button>
+      </nav>
+
       <main className="dashboard-main">
-        <section className="market-analysis" aria-labelledby="market-analysis-title">
+        {view === "chat" && <Conversation />}
+        {view === "single" && <section className="market-analysis" aria-labelledby="market-analysis-title">
           <div className="analysis-heading">
             <h2 id="market-analysis-title">山东市场分析</h2>
             <span className="analysis-status">历史数据 · 不执行交易</span>
@@ -99,7 +107,7 @@ export default function App() {
               </div>
             </details>
           )}
-        </section>
+        </section>}
       </main>
     </div>
   );

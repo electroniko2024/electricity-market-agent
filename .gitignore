@@ -25,6 +25,7 @@ ellectric/data/market_processed/models/
 ellectric/data/market_processed/model_run_*/
 ellectric/data/market_processed/policy_index/
 ellectric/data/market_processed/analysis_runs/
+ellectric/data/market_processed/conversations/
 
 # Frontend
 node_modules/

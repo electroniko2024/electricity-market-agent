@@ -30,5 +30,35 @@ class ReportMarkdownRouteTest(unittest.TestCase):
         self.assertEqual(missing.status_code, 404)
 
 
+class ConversationRouteTest(unittest.TestCase):
+    def test_turn_streams_without_raw_results_and_unknown_conversation_is_404(self) -> None:
+        import json
+        import tempfile
+
+        from ellectric.conversation.service import ConversationService, ConversationStore
+
+        class Fake(ConversationService):
+            def stream_turn(self, conversation_id, request):
+                yield {"type": "rewrite", "action": "clarify", "standalone_question": "", "clarification": "哪天？",
+                       "inherited": []}
+                yield {"type": "turn", "turn": {"type": "clarify"}, "result": {"trace": "secret raw"}}
+
+        with tempfile.TemporaryDirectory() as directory:
+            fake = Fake(store=ConversationStore(directory))
+            with patch.object(server, "_conversations", fake):
+                client = TestClient(server.app)
+                conversation_id = client.post("/conversations").json()["conversation_id"]
+                response = client.post(f"/conversations/{conversation_id}/turns",
+                                       json={"message": "那天呢", "as_of": "2025-10-08T00:00:00+08:00"})
+                missing = client.post("/conversations/conv_" + "0" * 32 + "/turns",
+                                      json={"message": "x", "as_of": "2025-10-08T00:00:00+08:00"})
+                no_report = client.get(f"/conversations/{conversation_id}/report.md")
+        events = [json.loads(line[6:]) for line in response.text.splitlines() if line.startswith("data: ")]
+        self.assertEqual([e["type"] for e in events], ["rewrite", "turn"])
+        self.assertNotIn("result", events[1])
+        self.assertEqual(missing.status_code, 404)
+        self.assertEqual(no_report.status_code, 404)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -9,6 +9,10 @@
 - GET  /trace/{trace_id}        → 读取已保存的 trace
 - GET  /trace/{trace_id}/report.md → 报告的 Markdown 导出
 - POST /market-tools/{name}     → 直接调用一个经 Pydantic 校验的市场工具
+- POST /conversations           → 新建多轮会话
+- GET  /conversations/{id}      → 读取会话（不含工具原始结果缓存）
+- POST /conversations/{id}/turns → 发一轮对话（SSE）：改写复述 → 反问或分析 → 分档回答；"出个报告"返回会话合并报告
+- GET  /conversations/{id}/report.md → 会话合并报告的 Markdown
 - GET  /                        → 前端（ellectric/web 构建产物）
 
 启动命令：
@@ -25,6 +29,7 @@ from fastapi.responses import PlainTextResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 
+from ellectric.conversation.service import ConversationService, TurnRequest, public_view
 from ellectric.llm.report_markdown import render_report_markdown
 from ellectric.service.analysis import (
     AnalysisRequest,
@@ -37,7 +42,8 @@ from ellectric.service.market_tools import invoke_market_tool
 
 logger = logging.getLogger(__name__)
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
+_conversations = ConversationService()
 
 
 class MarketToolRequest(BaseModel):
@@ -113,6 +119,54 @@ def market_tool(name: str, req: MarketToolRequest):
         if str(error).startswith("UNKNOWN_MARKET_TOOL:"):
             raise HTTPException(status_code=404, detail=str(error)) from None
         raise HTTPException(status_code=422, detail=str(error)) from None
+
+
+@app.post("/conversations")
+def create_conversation():
+    return public_view(_conversations.store.create())
+
+
+@app.get("/conversations/{conversation_id}")
+def read_conversation(conversation_id: str):
+    conversation = _conversations.store.load(conversation_id)
+    if conversation is None:
+        raise HTTPException(status_code=404, detail="CONVERSATION_NOT_FOUND")
+    return public_view(conversation)
+
+
+def _sse(events):
+    import json
+
+    try:
+        for event in events:
+            event = {k: v for k, v in event.items() if k != "result"}  # raw trace stays server-side
+            yield f"data: {json.dumps(event, ensure_ascii=False, allow_nan=False, default=str)}\n\n"
+    except Exception as error:  # noqa: BLE001 - reported to the client, never with secrets
+        from ellectric.conversation.service import _safe
+
+        yield "data: " + json.dumps({"type": "error", "message": _safe(error)}, ensure_ascii=False) + "\n\n"
+
+
+@app.post("/conversations/{conversation_id}/turns")
+def conversation_turn(conversation_id: str, req: TurnRequest):
+    if _conversations.store.load(conversation_id) is None:
+        raise HTTPException(status_code=404, detail="CONVERSATION_NOT_FOUND")
+    return StreamingResponse(
+        _sse(_conversations.stream_turn(conversation_id, req)),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "Connection": "keep-alive", "X-Accel-Buffering": "no"},
+    )
+
+
+@app.get("/conversations/{conversation_id}/report.md")
+def conversation_report_markdown(conversation_id: str):
+    conversation = _conversations.store.load(conversation_id)
+    if conversation is None:
+        raise HTTPException(status_code=404, detail="CONVERSATION_NOT_FOUND")
+    reports = [t["session_report"] for t in conversation["turns"] if t.get("type") == "report"]
+    if not reports:
+        raise HTTPException(status_code=404, detail="REPORT_NOT_GENERATED")
+    return PlainTextResponse(reports[-1]["markdown"], media_type="text/markdown; charset=utf-8")
 
 
 # Static frontend must be mounted after the API routes so it does not shadow them.

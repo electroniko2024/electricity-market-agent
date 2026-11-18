@@ -1,0 +1,7 @@
+{
+ "set": "multiturn_dev_v1",
+ "cases_sha256": "b7300357253c410874a2d6094c328dd351055111d771ce6ce89e0983a0d61154",
+ "oracle": true,
+ "model": "deepseek-v4.1-flash-1017",
+ "thinking": "disabled"
+}
